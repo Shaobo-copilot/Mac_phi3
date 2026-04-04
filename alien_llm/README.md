@@ -193,8 +193,38 @@ lsof -i :5000
 
 欢迎提交Issue和Pull Request来改进此项目！
 
+## 技能(Skills)系统
+
+项目包含了一个完整的技能管理系统，位于 `.opencode/skills/` 目录下。
+
+### 技能功能
+
+- **项目设置技能**: 检查和安装依赖，验证模型完整性
+- **数据管理技能**: 管理信号和星球数据，验证数据格式
+- **模型管理技能**: 检查模型完整性、GPU支持、模型信息
+- **综合管理技能**: 提供高层次的项目管理功能
+
+### 命令行接口
+
+使用内置的CLI工具管理项目：
+
+```bash
+# 查看项目信息
+python .opencode/skills/cli.py project info
+
+# 验证项目完整性
+python .opencode/skills/cli.py project validate
+
+# 查看数据摘要
+python .opencode/skills/cli.py data info
+
+# 验证模型文件
+python .opencode/skills/cli.py model quick-check
+```
+
 ## 致谢
 
 - Microsoft Phi-3模型团队
 - Hugging Face Transformers库
 - Flask Web框架
+- OpenCode AI平台
