@@ -1,3 +1,8 @@
+.DS_Store
+__pycache__/
+venv/
+*.log
+
 # =============== #
 # 忽略整个 Phi-3 模型目录（因为你用的是官方未微调版）
 # =============== #
@@ -28,4 +33,4 @@ wandb/
 runs/
 
 # OpenCode AI 助手
-.opencode/
+.opencode/.opencode/
