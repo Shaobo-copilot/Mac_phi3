@@ -1,0 +1,74 @@
+[
+  {
+    "id": "PLANET_01",
+    "name": "Proxima Centauri b",
+    "signal_type": "astronomical_reference",
+    "structure_tags": ["exoplanet_identifier"],
+    "semantic_tags": ["exoplanet", "terrestrial_planet", "habitable_zone_candidate"],
+    "inference_tags": ["potential_habitable_world"],
+    "knowledge_domain": "astronomy",
+    "civilization_type": "survival_adapted",
+    "perception_style": "environmental_pattern",
+    "technology_level": "developing"
+  },
+  {
+    "id": "PLANET_02",
+    "name": "Kepler-452b",
+    "signal_type": "astronomical_reference",
+    "structure_tags": ["exoplanet_identifier"],
+    "semantic_tags": ["exoplanet", "super_earth_candidate", "habitable_zone"],
+    "inference_tags": ["earth_like_environment_candidate"],
+    "knowledge_domain": "astronomy",
+    "civilization_type": "agricultural_scientific",
+    "perception_style": "systemic_analysis",
+    "technology_level": "advanced"
+  },
+  {
+    "id": "PLANET_03",
+    "name": "Kepler-186f",
+    "signal_type": "astronomical_reference",
+    "structure_tags": ["exoplanet_identifier"],
+    "semantic_tags": ["exoplanet", "rocky_planet", "habitable_zone"],
+    "inference_tags": ["potential_surface_water"],
+    "knowledge_domain": "astronomy",
+    "civilization_type": "water_ecology_based",
+    "perception_style": "biological_interpretation",
+    "technology_level": "developing"
+  },
+  {
+    "id": "PLANET_04",
+    "name": "TRAPPIST-1e",
+    "signal_type": "astronomical_reference",
+    "structure_tags": ["exoplanet_identifier"],
+    "semantic_tags": ["exoplanet", "rocky_planet", "habitable_zone"],
+    "inference_tags": ["high_habitability_interest"],
+    "knowledge_domain": "astronomy",
+    "civilization_type": "scientific",
+    "perception_style": "pattern_analysis",
+    "technology_level": "advanced"
+  },
+  {
+    "id": "PLANET_05",
+    "name": "Gliese 667 Cc",
+    "signal_type": "astronomical_reference",
+    "structure_tags": ["exoplanet_identifier"],
+    "semantic_tags": ["exoplanet", "super_earth", "habitable_zone_candidate"],
+    "inference_tags": ["possible_atmosphere"],
+    "knowledge_domain": "astronomy",
+    "civilization_type": "mineral_based",
+    "perception_style": "structural_logic",
+    "technology_level": "unknown"
+  },
+  {
+    "id": "PLANET_06",
+    "name": "K2-18b",
+    "signal_type": "astronomical_reference",
+    "structure_tags": ["exoplanet_identifier"],
+    "semantic_tags": ["exoplanet", "sub_neptune", "water_vapor_detection"],
+    "inference_tags": ["atmospheric_biosignature_interest"],
+    "knowledge_domain": "astronomy",
+    "civilization_type": "oceanic",
+    "perception_style": "fluid_pattern_recognition",
+    "technology_level": "developing"
+  }
+]

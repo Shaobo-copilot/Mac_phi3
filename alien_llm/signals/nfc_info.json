@@ -1,0 +1,110 @@
+[
+  {
+    "id": "5AB54C3C064189",
+    "name": "Population(8340995923)",
+    "signal_type": "numeric",
+    "structure_tags": ["number_sequence"],
+    "semantic_tags": ["population", "demography"],
+    "inference_tags": ["large_scale_civilization"],
+    "knowledge_domain": "mathematics"
+  },
+  {
+    "id": "5A75CE3E064189",
+    "name": "Human",
+    "signal_type": "image",
+    "structure_tags": ["visual_pattern"],
+    "semantic_tags": ["terrestrial_life", "bipedal_organism"],
+    "inference_tags": ["intelligent_species"],
+    "knowledge_domain": "biology"
+  },
+  {
+    "id": "5A65A93E064189",
+    "name": "Gene Pairs(3101804739)",
+    "signal_type": "numeric",
+    "structure_tags": ["number_sequence"],
+    "semantic_tags": ["genetic_information"],
+    "inference_tags": ["complex_biology"],
+    "knowledge_domain": "mathematics"
+  },
+  {
+    "id": "5AD55200000000",
+    "name": "Cat",
+    "signal_type": "image",
+    "structure_tags": ["visual_pattern"],
+    "semantic_tags": ["animal", "terrestrial_mammal"],
+    "inference_tags": ["biodiversity"],
+    "knowledge_domain": "culture"
+  },
+  {
+    "id": "1DFC0033181080",
+    "name": "Dog",
+    "signal_type": "image",
+    "structure_tags": ["visual_pattern"],
+    "semantic_tags": ["animal", "domesticated_species"],
+    "inference_tags": ["human_animal_relationship"],
+    "knowledge_domain": "culture"
+  },
+  {
+    "id": "1DCF1033181080",
+    "name": "Earth",
+    "signal_type": "image",
+    "structure_tags": ["visual_pattern"],
+    "semantic_tags": ["planet", "liquid_water_environment"],
+    "inference_tags": ["habitable_world"],
+    "knowledge_domain": "astronomy"
+  },
+  {
+    "id": "5AA5E73E064189",
+    "name": "Solar System",
+    "signal_type": "map",
+    "structure_tags": ["astronomical_map"],
+    "semantic_tags": ["planetary_system"],
+    "inference_tags": ["cosmic_location"],
+    "knowledge_domain": "astronomy"
+  },
+  {
+    "id": "5AA5AE3E064189",
+    "name": "Mondrian",
+    "signal_type": "image",
+    "structure_tags": ["geometric_pattern"],
+    "semantic_tags": ["abstract_art"],
+    "inference_tags": ["cultural_expression"],
+    "knowledge_domain": "culture"
+  },
+  {
+    "id": "1D250333181080",
+    "name": "Apple",
+    "signal_type": "image",
+    "structure_tags": ["visual_pattern"],
+    "semantic_tags": ["plant", "food_source"],
+    "inference_tags": ["agriculture_or_diet"],
+    "knowledge_domain": "culture"
+  },
+  {
+    "id": "5AC55200000000",
+    "name": "DNA",
+    "signal_type": "symbol",
+    "structure_tags": ["symbolic_structure"],
+    "semantic_tags": ["genetic_molecule"],
+    "inference_tags": ["biological_information_system"],
+    "knowledge_domain": "biology"
+  },
+  {
+    "id": "5AB5AE3E064189",
+    "name": "Heart",
+    "signal_type": "symbol",
+    "structure_tags": ["symbolic_pattern"],
+    "semantic_tags": ["symbol_of_affection"],
+    "inference_tags": ["emotional_communication"],
+    "knowledge_domain": "culture"
+  },
+  {
+    "id": "1D5AF332181080",
+    "name": "Natural Number",
+    "signal_type": "math",
+    "structure_tags": ["number_system"],
+    "semantic_tags": ["natural_numbers"],
+    "inference_tags": ["mathematical_knowledge"],
+    "knowledge_domain": "mathematics"
+  }
+]
