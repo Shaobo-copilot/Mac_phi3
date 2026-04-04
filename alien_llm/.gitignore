@@ -1,0 +1,31 @@
+# =============== #
+# 忽略整个 Phi-3 模型目录（因为你用的是官方未微调版）
+# =============== #
+phi3/
+
+# =============== #
+# 或者更精细地忽略大文件（保留配置）
+# =============== #
+# phi3/*.safetensors
+# phi3/*.bin
+# phi3/pytorch_model.bin
+# !phi3/config.json
+# !phi3/tokenizer.json
+
+# 系统 & IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# 日志
+*.log
+wandb/
+runs/
+
+# OpenCode AI 助手
+.opencode/
