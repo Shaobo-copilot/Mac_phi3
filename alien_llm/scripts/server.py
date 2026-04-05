@@ -105,7 +105,6 @@ Their perception style:
 
 Explain how this civilization interprets the signals.
 Keep the answer within 2 sentences.
-<|assistant|>
 """
     
     inputs = tokenizer(prompt, return_tensors="pt")
@@ -121,8 +120,8 @@ Keep the answer within 2 sentences.
     text = tokenizer.decode(output[0], skip_special_tokens=True)
     
     # 提取 assistant 后的内容
-    if "<|assistant|>" in text:
-        result_text = text.split("<|assistant|>", 1)[1].strip()
+    if "Keep the answer within 2 sentences." in text:
+        result_text = text.split("Keep the answer within 2 sentences.")[-1].strip()
     else:
         result_text = text.strip()
     
