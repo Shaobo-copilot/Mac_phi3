@@ -97,7 +97,6 @@
             vertical-align: top;
         }
         
-        /* 改进并排布局的对齐和间距 */
         .signals-container {
             margin-right: 2%;
         }
@@ -568,14 +567,11 @@
         }
 
         function randomizeSignals() {
-            // 随机选择3个信号
             const shuffled = [...signals].sort(() => 0.5 - Math.random());
             const randomSignals = shuffled.slice(0, 3);
             
-            // 清除当前选择
             selectedSignals.clear();
             
-            // 添加新选择
             randomSignals.forEach(signal => {
                 selectedSignals.add(signal.name);
             });
@@ -613,66 +609,143 @@
             }).then(res => res.json());
 
             document.getElementById('loading').classList.remove('active');
+            console.log('✓ Result received:', result);
             displayResult(result);
             addToHistory(result);
         }
 
+        // ============================================================
+        // 修复后的函数 1：displayResult()
+        // ============================================================
         function displayResult(data) {
-            const planet = data.planet;
-            const signals = data.signals.map(s => s.name).join(', ');
+            console.log('Display data:', data);  // 调试用
             
-            document.getElementById('resultPanel').innerHTML = `
-                <div class="result-card">
-                    <div class="result-text">${escapeHtml(data.planet_analysis)}</div>
-                    <div class="result-meta">
-                        <div class="meta-item">
-                            <h5>🪐 星球分析</h5>
-                            <p>${escapeHtml(data.planet_analysis)}</p>
-                        </div>
-                    </div>
-                </div>
+            // 处理新的后端 API 格式
+            if (data.sections) {
+                // 新格式：sections + metadata
+                const sections = data.sections;
+                const metadata = data.metadata;
                 
-                <div class="result-card">
-                    <div class="result-text">${escapeHtml(data.civilization_analysis)}</div>
-                    <div class="result-meta">
-                        <div class="meta-item">
-                            <h5>🏛️ 文明分析</h5>
-                            <p>${escapeHtml(data.civilization_analysis)}</p>
-                        </div>
-                    </div>
-                </div>
+                let html = '';
                 
-                <div class="result-card">
-                    <div class="result-text">${escapeHtml(data.perception_analysis)}</div>
-                    <div class="result-meta">
-                        <div class="meta-item">
-                            <h5>👁️ 感知分析</h5>
-                            <p>${escapeHtml(data.perception_analysis)}</p>
+                // 显示元数据（星球、文明、信号等）
+                html += `
+                    <div class="result-card">
+                        <div class="result-meta">
+                            <div class="meta-item">
+                                <h5>🪐 观测星球</h5>
+                                <p>${escapeHtml(metadata.planet.name)}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h5>🧠 文明类型</h5>
+                                <p>${escapeHtml(metadata.civilization_type)}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h5>👁️ 感知方式</h5>
+                                <p>${escapeHtml(metadata.perception_style)}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h5>📡 接收信号</h5>
+                                <p>${metadata.signals.map(s => s.name).join(', ')}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                `;
                 
-                <div class="result-card">
-                    <div class="result-text">${escapeHtml(data.signal_analysis)}</div>
-                    <div class="result-meta">
-                        <div class="meta-item">
-                            <h5>📡 信号分析</h5>
-                            <p>${escapeHtml(data.signal_analysis)}</p>
+                // 显示各个 section
+                const sectionOrder = [
+                    { key: 'semantic_interpretation', icon: '📝', title: '语义解释' },
+                    { key: 'civilization_context', icon: '🏛️', title: '文明背景' },
+                    { key: 'perception_influence', icon: '👁️', title: '感知影响' },
+                    { key: 'final_conclusion', icon: '🎯', title: '综合结论' }
+                ];
+                
+                for (const section of sectionOrder) {
+                    const sectionData = sections[section.key];
+                    if (sectionData && sectionData.content) {
+                        html += `
+                            <div class="result-card">
+                                <h4 style="color: #00d4ff; margin-bottom: 12px; display: flex; align-items: center;">
+                                    <span style="margin-right: 8px;">${section.icon}</span>
+                                    ${sectionData.title}
+                                </h4>
+                                <div class="result-text">${escapeHtml(sectionData.content)}</div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                // 如果没有任何 sections，显示 raw_text 作为备选
+                const hasContent = Object.values(sections).some(s => s && s.content);
+                if (!hasContent && data.raw_text) {
+                    html += `
+                        <div class="result-card">
+                            <h4 style="color: #ffc107;">⚠️ 原始输出</h4>
+                            <div class="result-text">${escapeHtml(data.raw_text)}</div>
                         </div>
+                    `;
+                }
+                
+                document.getElementById('resultPanel').innerHTML = html;
+            } 
+            // 向后兼容：旧格式
+            else if (data.planet_analysis) {
+                document.getElementById('resultPanel').innerHTML = `
+                    <div class="result-card">
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">🪐 星球分析</h4>
+                        <div class="result-text">${escapeHtml(data.planet_analysis)}</div>
                     </div>
-                </div>
-            `;
+                    <div class="result-card">
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">🏛️ 文明分析</h4>
+                        <div class="result-text">${escapeHtml(data.civilization_analysis)}</div>
+                    </div>
+                    <div class="result-card">
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">👁️ 感知分析</h4>
+                        <div class="result-text">${escapeHtml(data.perception_analysis)}</div>
+                    </div>
+                    <div class="result-card">
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">📡 信号分析</h4>
+                        <div class="result-text">${escapeHtml(data.signal_analysis)}</div>
+                    </div>
+                `;
+            }
         }
 
+        // ============================================================
+        // 修复后的函数 2：addToHistory()
+        // ============================================================
         function addToHistory(data) {
+            console.log('Adding to history:', data);
+            
+            let resultText = '';
+            
+            // 新格式
+            if (data.sections) {
+                resultText = Object.values(data.sections)
+                    .filter(s => s && s.content)
+                    .map(s => `${s.title}: ${s.content}`)
+                    .join(' | ')
+                    .substring(0, 150);
+            }
+            // 旧格式
+            else if (data.signal_analysis) {
+                resultText = data.signal_analysis.substring(0, 150);
+            }
+            
+            const planetData = data.metadata ? data.metadata.planet : data.planet;
+            const signalsData = data.metadata ? data.metadata.signals : data.signals;
+            
             const entry = {
                 id: Date.now(),
-                timestamp: data.timestamp,
-                signals: data.signals.map(s => s.name).join(', '),
-                planet: data.planet.name,
-                result: data.signal_analysis,
-                planet_info: data.planet
+                timestamp: data.metadata ? data.metadata.timestamp : data.timestamp,
+                signals: signalsData.map(s => s.name).join(', '),
+                planet: planetData.name,
+                result: resultText,
+                planet_info: planetData,
+                sections: data.sections || null,
+                full_data: data
             };
+            
             history.unshift(entry);
             renderHistory();
             saveHistory();
@@ -696,19 +769,20 @@
         function loadHistoryEntry(id) {
             const entry = history.find(h => h.id === id);
             if (entry) {
-                selectedSignals = new Set(entry.signals.split(', ').filter(Boolean));
-                selectedPlanet = entry.planet;
-                updateSignalCount();
-                renderSignals();
-                renderPlanets();
-                displayResult({
-                    planet_analysis: "历史记录中的星球分析",
-                    civilization_analysis: "历史记录中的文明分析", 
-                    perception_analysis: "历史记录中的感知分析",
-                    signal_analysis: entry.result,
-                    planet: entry.planet_info,
-                    signals: []
-                });
+                if (entry.full_data) {
+                    displayResult(entry.full_data);
+                } else {
+                    const reconstructedData = {
+                        planet_analysis: `关于${entry.planet}的分析`,
+                        civilization_analysis: `文明分析：${entry.planet_info.civilization_type}`,
+                        perception_analysis: `感知方式：${entry.planet_info.perception_style}`,
+                        signal_analysis: entry.result,
+                        signals: [],
+                        planet: entry.planet_info,
+                        timestamp: entry.timestamp
+                    };
+                    displayResult(reconstructedData);
+                }
             }
         }
 
