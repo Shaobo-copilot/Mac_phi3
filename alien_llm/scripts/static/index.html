@@ -86,6 +86,26 @@
             color: #1a1a2e;
         }
 
+        .input-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .signals-container, .planet-container {
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+        }
+        
+        /* 改进并排布局的对齐和间距 */
+        .signals-container {
+            margin-right: 2%;
+        }
+        
+        .planet-container {
+            margin-left: 2%;
+        }
+        
         .main-layout {
             display: grid;
             grid-template-columns: 350px 1fr;
@@ -367,21 +387,30 @@
                 <div class="panel">
                     <h2 class="panel-title">⚙️ 参数配置</h2>
                     
-                    <div class="form-group">
-                        <label class="form-label">
-                            选择信号 (3 个)
-                            <span class="selected-count" id="signalCount">0/3</span>
-                        </label>
-                        <div class="checkbox-group" id="signalList"></div>
+                    <div class="input-section">
+                        <div class="signals-container">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    选择信号 (3 个)
+                                    <span class="selected-count" id="signalCount">0/3</span>
+                                </label>
+                                <div class="checkbox-group" id="signalList"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="planet-container">
+                            <div class="form-group">
+                                <label class="form-label">选择星球</label>
+                                <div class="planet-grid" id="planetList"></div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label">选择星球</label>
-                        <div class="planet-grid" id="planetList"></div>
-                    </div>
-
-                    <button class="btn btn-random" onclick="randomizePlanet()" style="width: 100%; margin-bottom: 20px;">
+                    
+                    <button class="btn btn-random" onclick="randomizePlanet()" style="width: 49%; margin-bottom: 20px; display: inline-block;">
                         🎲 随机星球
+                    </button>
+                    <button class="btn btn-random" onclick="randomizeSignals()" style="width: 49%; margin-bottom: 20px; display: inline-block;">
+                        🎲 随机信号
                     </button>
 
                     <div class="form-group">
@@ -538,6 +567,23 @@
             renderPlanets();
         }
 
+        function randomizeSignals() {
+            // 随机选择3个信号
+            const shuffled = [...signals].sort(() => 0.5 - Math.random());
+            const randomSignals = shuffled.slice(0, 3);
+            
+            // 清除当前选择
+            selectedSignals.clear();
+            
+            // 添加新选择
+            randomSignals.forEach(signal => {
+                selectedSignals.add(signal.name);
+            });
+            
+            updateSignalCount();
+            renderSignals();
+        }
+
         function updateSignalCount() {
             document.getElementById('signalCount').textContent = `${selectedSignals.size}/3`;
         }
@@ -577,23 +623,41 @@
             
             document.getElementById('resultPanel').innerHTML = `
                 <div class="result-card">
-                    <div class="result-text">${escapeHtml(data.result)}</div>
+                    <div class="result-text">${escapeHtml(data.planet_analysis)}</div>
                     <div class="result-meta">
                         <div class="meta-item">
-                            <h5>🌍 接收信号</h5>
-                            <p>${signals}</p>
+                            <h5>🪐 星球分析</h5>
+                            <p>${escapeHtml(data.planet_analysis)}</p>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-text">${escapeHtml(data.civilization_analysis)}</div>
+                    <div class="result-meta">
                         <div class="meta-item">
-                            <h5>🪐 观测星球</h5>
-                            <p>${planet.name}</p>
+                            <h5>🏛️ 文明分析</h5>
+                            <p>${escapeHtml(data.civilization_analysis)}</p>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-text">${escapeHtml(data.perception_analysis)}</div>
+                    <div class="result-meta">
                         <div class="meta-item">
-                            <h5>🧠 文明类型</h5>
-                            <p>${planet.civilization_type}</p>
+                            <h5>👁️ 感知分析</h5>
+                            <p>${escapeHtml(data.perception_analysis)}</p>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-text">${escapeHtml(data.signal_analysis)}</div>
+                    <div class="result-meta">
                         <div class="meta-item">
-                            <h5>👁️ 感知方式</h5>
-                            <p>${planet.perception_style}</p>
+                            <h5>📡 信号分析</h5>
+                            <p>${escapeHtml(data.signal_analysis)}</p>
                         </div>
                     </div>
                 </div>
@@ -606,7 +670,7 @@
                 timestamp: data.timestamp,
                 signals: data.signals.map(s => s.name).join(', '),
                 planet: data.planet.name,
-                result: data.result,
+                result: data.signal_analysis,
                 planet_info: data.planet
             };
             history.unshift(entry);
@@ -638,7 +702,10 @@
                 renderSignals();
                 renderPlanets();
                 displayResult({
-                    result: entry.result,
+                    planet_analysis: "历史记录中的星球分析",
+                    civilization_analysis: "历史记录中的文明分析", 
+                    perception_analysis: "历史记录中的感知分析",
+                    signal_analysis: entry.result,
                     planet: entry.planet_info,
                     signals: []
                 });

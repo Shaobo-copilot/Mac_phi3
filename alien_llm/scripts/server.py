@@ -65,7 +65,7 @@ def generate():
     signal_names = data.get('signal_names', [])
     planet_name = data.get('planet_name', '')
     temperature = data.get('temperature', 0.7)
-    max_new_tokens = data.get('max_new_tokens', 80)
+    max_new_tokens = data.get('max_new_tokens', 40)
     
     # 首次调用时加载模型
     if model is None:
@@ -91,21 +91,21 @@ def generate():
     perception = planet["perception_style"]
     
     # 构建 Prompt
-    prompt = f"""<|user|>
+    prompt = f"""
 An alien civilization from {planet_name_val} receives signals from Earth.
 
-Detected signal meanings:
-{", ".join(semantic_tags)}
+Please analyze each signal category separately and respond in this exact JSON format:
+{{
+  "signal_analysis": {{
+    "semantic_interpretation": "How they interpret the semantic tags: {', '.join(semantic_tags)}",
+    "civilization_context": "How their civilization type '{civilization}' affects interpretation", 
+    "perception_influence": "How their perception style '{perception}' shapes understanding",
+    "final_conclusion": "请综合以上三点（语义解读、文明背景、感知影响），对{planet_name_val}文明如何整体理解这些地球信号给出一个深刻的、有洞察力的最终结论。"
+  }}
+}}
 
-Their civilization type:
-{civilization}
-
-Their perception style:
-{perception}
-
-Explain how this civilization interprets the signals.
-Keep the answer within 2 sentences.
-<|assistant|>
+Keep each section concise (1-2 sentences). Ensure complete sentences with proper punctuation.
+Please respond in Chinese only.
 """
     
     inputs = tokenizer(prompt, return_tensors="pt")
@@ -113,9 +113,12 @@ Keep the answer within 2 sentences.
     
     output = model.generate(
         **inputs,
-        max_new_tokens=max_new_tokens,
+        max_new_tokens=max_new_tokens + 20,  # 增加缓冲空间
         temperature=temperature,
-        do_sample=True
+        do_sample=True,
+        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=tokenizer.pad_token_id,
+        early_stopping=True
     )
     
     text = tokenizer.decode(output[0], skip_special_tokens=True)
@@ -126,8 +129,41 @@ Keep the answer within 2 sentences.
     else:
         result_text = text.strip()
     
+    # 确保句子完整性
+    import re
+    sentence_endings = ['.', '!', '?']
+    last_valid_end = -1
+    for ending in sentence_endings:
+        pos = result_text.rfind(ending)
+        if pos > last_valid_end:
+            last_valid_end = pos
+
+    if last_valid_end != -1:
+        result_text = result_text[:last_valid_end + 1]
+    
+    # 尝试解析为JSON格式（如果模型返回了JSON）
+    import json
+    try:
+        # 尝试提取JSON部分
+        json_start = result_text.find('{')
+        json_end = result_text.rfind('}')
+        if json_start != -1 and json_end != -1:
+            json_str = result_text[json_start:json_end+1]
+            parsed_result = json.loads(json_str)
+            # 如果解析成功并且包含所需字段，则使用解析后的结果
+            if 'signal_analysis' in parsed_result:
+                signal_analysis = parsed_result['signal_analysis']
+                result_text = signal_analysis.get('final_conclusion', result_text)
+    except:
+        # 如果解析失败，则使用原始文本（保持向后兼容）
+        pass
+    
+    # 返回结构化分析结果
     return jsonify({
-        'result': result_text,
+        'planet_analysis': f"关于{planet_name_val}的分析：{planet['name']}是一个{planet['civilization_type']}文明的观测点，其{planet['perception_style']}感知方式会影响对信号的理解。",
+        'civilization_analysis': f"文明类型分析：{civilization}类型的文明会基于其社会结构和科技发展水平来解释接收到的信号。",
+        'perception_analysis': f"感知风格分析：{perception}的感知风格意味着他们更关注信号的整体模式而非细节。",
+        'signal_analysis': result_text,
         'planet': planet,
         'signals': chosen_signals,
         'timestamp': datetime.now().isoformat()
