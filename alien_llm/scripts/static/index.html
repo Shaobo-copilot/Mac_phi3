@@ -381,6 +381,45 @@
             </button>
         </div>
 
+        <!-- 顶部生成控制区域 -->
+        <div class="panel" style="margin-bottom: 20px;">
+            <h2 class="panel-title">🚀 快速生成控制</h2>
+            
+            <div class="form-group" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <button class="btn btn-random" onclick="randomizePlanet()">
+                    🎲 随机星球
+                </button>
+                
+                <button class="btn btn-random" onclick="randomizeSignals()">
+                    🎲 随机信号
+                </button>
+                
+                <button class="btn btn-primary generate-btn" onclick="generateResult()" style="min-width: 120px;">
+                    🚀 生成结果
+                </button>
+                
+                <div style="flex-grow: 1;"></div>
+                
+                <label class="form-label" style="margin-bottom: 0;">
+                    批量生成数量:
+                </label>
+                <input type="number" id="batchCount" placeholder="输入生成次数" min="1" max="1000" style="width: 120px; padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white;">
+                
+                <div style="display: flex; gap: 15px;">
+                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                        <input type="checkbox" id="randomPlanetToggle" checked> 随机星球
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                        <input type="checkbox" id="randomSignalToggle" checked> 随机信号
+                    </label>
+                </div>
+                
+                <button class="btn btn-success" onclick="startBatchGeneration()" style="min-width: 120px;">
+                    🚀 批量生成
+                </button>
+            </div>
+        </div>
+
         <div class="main-layout">
             <div class="left-panel">
                 <div class="panel">
@@ -404,13 +443,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <button class="btn btn-random" onclick="randomizePlanet()" style="width: 49%; margin-bottom: 20px; display: inline-block;">
-                        🎲 随机星球
-                    </button>
-                    <button class="btn btn-random" onclick="randomizeSignals()" style="width: 49%; margin-bottom: 20px; display: inline-block;">
-                        🎲 随机信号
-                    </button>
 
                     <div class="form-group">
                         <label class="form-label">
@@ -431,10 +463,6 @@
                             <input type="range" id="maxTokens" min="20" max="200" step="10" value="80" oninput="document.getElementById('tokensValue').textContent=this.value">
                         </div>
                     </div>
-
-                    <button class="btn btn-primary generate-btn" onclick="generateResult()">
-                        🚀 生成结果
-                    </button>
                 </div>
             </div>
 
@@ -584,6 +612,8 @@
             document.getElementById('signalCount').textContent = `${selectedSignals.size}/3`;
         }
 
+        let batchResults = []; // 存储批量生成的结果
+        
         async function generateResult() {
             if (selectedSignals.size !== 3) {
                 alert('请选择 exactly 3 个信号！');
@@ -688,6 +718,41 @@
                 
                 document.getElementById('resultPanel').innerHTML = html;
             } 
+            // 中间格式：新字段但没有sections结构
+            else if (data.result) {
+                // 从后端API获取的格式
+                let html = '';
+                
+                // 显示元数据（星球、信号等）
+                html += `
+                    <div class="result-card">
+                        <div class="result-meta">
+                            <div class="meta-item">
+                                <h5>🪐 观测星球</h5>
+                                <p>${escapeHtml(data.planet ? data.planet.name : '未知')}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h5>📡 接收信号</h5>
+                                <p>${data.signals ? data.signals.map(s => s.name).join(', ') : '未知'}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h5>⏰ 生成时间</h5>
+                                <p>${new Date(data.timestamp).toLocaleString()}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 显示生成的主要内容
+                html += `
+                    <div class="result-card">
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">🚀 生成结果</h4>
+                        <div class="result-text">${escapeHtml(data.result)}</div>
+                    </div>
+                `;
+                
+                document.getElementById('resultPanel').innerHTML = html;
+            }
             // 向后兼容：旧格式
             else if (data.planet_analysis) {
                 document.getElementById('resultPanel').innerHTML = `
@@ -727,19 +792,36 @@
                     .join(' | ')
                     .substring(0, 150);
             }
+            // 中间格式：从API返回的数据
+            else if (data.result) {
+                resultText = data.result.substring(0, 150);
+            }
             // 旧格式
             else if (data.signal_analysis) {
                 resultText = data.signal_analysis.substring(0, 150);
             }
             
-            const planetData = data.metadata ? data.metadata.planet : data.planet;
-            const signalsData = data.metadata ? data.metadata.signals : data.signals;
+            // 获取星球和信号数据
+            let planetData, signalsData;
+            if (data.metadata) {
+                // 新格式
+                planetData = data.metadata.planet;
+                signalsData = data.metadata.signals;
+            } else if (data.planet) {
+                // API返回格式
+                planetData = data.planet;
+                signalsData = data.signals;
+            } else {
+                // 旧格式
+                planetData = data.planet_info;
+                signalsData = data.signals || [];
+            }
             
             const entry = {
                 id: Date.now(),
-                timestamp: data.metadata ? data.metadata.timestamp : data.timestamp,
-                signals: signalsData.map(s => s.name).join(', '),
-                planet: planetData.name,
+                timestamp: data.timestamp || (data.metadata ? data.metadata.timestamp : new Date().toISOString()),
+                signals: signalsData ? signalsData.map(s => s.name).join(', ') : 'Unknown',
+                planet: planetData ? planetData.name : 'Unknown',
                 result: resultText,
                 planet_info: planetData,
                 sections: data.sections || null,
@@ -852,6 +934,259 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        // 批量生成功能
+        async function startBatchGeneration() {
+            const count = parseInt(document.getElementById('batchCount').value);
+            if (!count || count <= 0) {
+                alert('请输入有效的生成数量！');
+                return;
+            }
+            
+            if (count > 100) {
+                if (!confirm(`您要批量生成 ${count} 条数据，这可能需要较长时间，是否继续？`)) {
+                    return;
+                }
+            }
+
+            const randomPlanetEnabled = document.getElementById('randomPlanetToggle').checked;
+            const randomSignalEnabled = document.getElementById('randomSignalToggle').checked;
+
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('resultPanel').innerHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff;">正在批量生成中... (0/${count})</div>`;
+            
+            // 保存原始选择，以便在固定模式下恢复
+            const originalSelectedSignals = new Set(selectedSignals);
+            const originalSelectedPlanet = selectedPlanet;
+
+            // 清空之前的批量结果
+            batchResults = [];
+
+            for (let i = 0; i < count; i++) {
+                // 根据设置决定是否随机化
+                if (randomPlanetEnabled) {
+                    randomizePlanet();
+                } else {
+                    // 如果不随机，则保持原来的选择
+                    selectedPlanet = originalSelectedPlanet;
+                    renderPlanets();
+                }
+                
+                if (randomSignalEnabled) {
+                    randomizeSignals();
+                } else {
+                    // 如果不随机，则保持原来的选择
+                    selectedSignals = new Set(originalSelectedSignals);
+                    updateSignalCount();
+                    renderSignals();
+                }
+                
+                // 更新进度
+                document.getElementById('resultPanel').innerHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff;">正在批量生成中... (${i+1}/${count})</div>`;
+                
+                try {
+                    // 调用生成函数
+                    const result = await generateSingleResultForBatch();
+                    batchResults.push(result); // 收集结果
+                } catch (error) {
+                    console.error('批量生成错误:', error);
+                    alert(`在生成第 ${i+1} 条时发生错误: ${error.message}`);
+                    break;
+                }
+            }
+
+            document.getElementById('loading').classList.remove('active');
+            
+            // 显示批量生成完成信息和结果概览
+            let resultsHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff; margin-bottom: 20px;">批量生成完成！共生成 ${count} 条结果。</div>`;
+            
+            // 显示最近的几个结果（比如最新的5个）
+            const recentCount = Math.min(5, batchResults.length);
+            resultsHTML += `<div style="text-align: center; margin-bottom: 15px; color: #aaa;">以下是最新 ${recentCount} 条结果：</div>`;
+            
+            // 显示最近的结果
+            for (let i = batchResults.length - recentCount; i < batchResults.length; i++) {
+                const result = batchResults[i];
+                if (result) {
+                    let previewText = '无预览';
+                    if (result.sections) {
+                        previewText = Object.values(result.sections)
+                            .filter(s => s && s.content)
+                            .map(s => s.content.substring(0, 100))
+                            .join(' ... ');
+                    } else if (result.result) {
+                        previewText = result.result.substring(0, 150);
+                    } else if (result.signal_analysis) {
+                        previewText = result.signal_analysis.substring(0, 150);
+                    }
+                    
+                    resultsHTML += `
+                        <div class="result-card" style="margin-bottom: 15px;">
+                            <div class="result-meta" style="margin-bottom: 10px;">
+                                <div class="meta-item">
+                                    <h5>🪐 星球</h5>
+                                    <p>${result.metadata ? result.metadata.planet.name : (result.planet ? result.planet.name : 'N/A')}</p>
+                                </div>
+                                <div class="meta-item">
+                                    <h5>📡 信号</h5>
+                                    <p>${result.metadata ? result.metadata.signals.map(s => s.name).join(', ') : (result.signals ? result.signals.map(s => s.name).join(', ') : 'N/A')}</p>
+                                </div>
+                            </div>
+                            <div class="result-text" style="font-size: 0.9em; color: #ccc;">${escapeHtml(previewText)}...</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            // 添加按钮让用户查看所有结果
+            if (batchResults.length > 0) {
+                resultsHTML += `<div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="showAllBatchResults()" style="padding: 10px 20px;">查看所有 ${batchResults.length} 条结果</button>
+                </div>`;
+            }
+            
+            document.getElementById('resultPanel').innerHTML = resultsHTML;
+            
+            // 恢复原始选择
+            selectedSignals = originalSelectedSignals;
+            selectedPlanet = originalSelectedPlanet;
+            renderSignals();
+            renderPlanets();
+        }
+
+        // 单次生成函数（用于批量生成内部调用）
+        async function generateSingleResultForBatch() {
+            if (selectedSignals.size !== 3) {
+                throw new Error('请选择 exactly 3 个信号！');
+            }
+            if (!selectedPlanet) {
+                throw new Error('请选择一个星球！');
+            }
+
+            const result = await fetch('/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    signal_names: Array.from(selectedSignals),
+                    planet_name: selectedPlanet,
+                    temperature: parseFloat(document.getElementById('temperature').value),
+                    max_new_tokens: parseInt(document.getElementById('maxTokens').value)
+                })
+            }).then(res => res.json());
+
+            console.log('✓ Result received:', result);
+            addToHistory(result); // 添加到历史记录
+            return result; // 返回结果供批量收集
+        }
+
+        // 显示所有批量生成结果
+        function showAllBatchResults() {
+            if (!batchResults || batchResults.length === 0) {
+                alert('没有批量生成的结果可以显示！');
+                return;
+            }
+
+            // 创建结果面板HTML
+            let resultsHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff; margin-bottom: 20px;">共 ${batchResults.length} 条批量生成结果</div>`;
+            
+            // 反向遍历，最新的结果在最前面
+            for (let i = batchResults.length - 1; i >= 0; i--) {
+                const result = batchResults[i];
+                if (result) {
+                    // 使用现有的displayResult函数来显示每个结果
+                    const resultIndex = batchResults.length - i; // 从1开始编号
+                    resultsHTML += `<div class="result-card" style="margin-bottom: 20px; border-left: 4px solid #ff6b6b;">
+                        <div style="text-align: right; margin-bottom: 10px; color: #ff6b6b; font-weight: bold;"># ${resultIndex}</div>`;
+                    
+                    // 根据结果格式显示内容
+                    if (result.sections) {
+                        // 新格式：sections + metadata
+                        const sections = result.sections;
+                        const metadata = result.metadata;
+                        
+                        resultsHTML += `
+                            <div class="result-meta" style="margin-bottom: 15px;">
+                                <div class="meta-item">
+                                    <h5>🪐 观测星球</h5>
+                                    <p>${escapeHtml(metadata.planet.name)}</p>
+                                </div>
+                                <div class="meta-item">
+                                    <h5>🧠 文明类型</h5>
+                                    <p>${escapeHtml(metadata.civilization_type)}</p>
+                                </div>
+                                <div class="meta-item">
+                                    <h5>👁️ 感知方式</h5>
+                                    <p>${escapeHtml(metadata.perception_style)}</p>
+                                </div>
+                                <div class="meta-item">
+                                    <h5>📡 接收信号</h5>
+                                    <p>${metadata.signals.map(s => s.name).join(', ')}</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // 显示各个 section
+                        const sectionOrder = [
+                            { key: 'semantic_interpretation', icon: '📝', title: '语义解释' },
+                            { key: 'civilization_context', icon: '🏛️', title: '文明背景' },
+                            { key: 'perception_influence', icon: '👁️', title: '感知影响' },
+                            { key: 'final_conclusion', icon: '🎯', title: '综合结论' }
+                        ];
+                        
+                        for (const section of sectionOrder) {
+                            const sectionData = sections[section.key];
+                            if (sectionData && sectionData.content) {
+                                resultsHTML += `
+                                    <div class="result-card">
+                                        <h4 style="color: #00d4ff; margin-bottom: 12px; display: flex; align-items: center;">
+                                            <span style="margin-right: 8px;">${section.icon}</span>
+                                            ${sectionData.title}
+                                        </h4>
+                                        <div class="result-text">${escapeHtml(sectionData.content)}</div>
+                                    </div>
+                                `;
+                            }
+                        }
+                        
+                        // 如果没有任何 sections，显示 raw_text 作为备选
+                        const hasContent = Object.values(sections).some(s => s && s.content);
+                        if (!hasContent && result.raw_text) {
+                            resultsHTML += `
+                                <div class="result-card">
+                                    <h4 style="color: #ffc107;">⚠️ 原始输出</h4>
+                                    <div class="result-text">${escapeHtml(result.raw_text)}</div>
+                                </div>
+                            `;
+                        }
+                    } 
+                    // 向后兼容：旧格式
+                    else if (result.planet_analysis) {
+                        resultsHTML += `
+                            <div class="result-card">
+                                <h4 style="color: #00d4ff; margin-bottom: 12px;">🪐 星球分析</h4>
+                                <div class="result-text">${escapeHtml(result.planet_analysis)}</div>
+                            </div>
+                            <div class="result-card">
+                                <h4 style="color: #00d4ff; margin-bottom: 12px;">🏛️ 文明分析</h4>
+                                <div class="result-text">${escapeHtml(result.civilization_analysis)}</div>
+                            </div>
+                            <div class="result-card">
+                                <h4 style="color: #00d4ff; margin-bottom: 12px;">👁️ 感知分析</h4>
+                                <div class="result-text">${escapeHtml(result.perception_analysis)}</div>
+                            </div>
+                            <div class="result-card">
+                                <h4 style="color: #00d4ff; margin-bottom: 12px;">📡 信号分析</h4>
+                                <div class="result-text">${escapeHtml(result.signal_analysis)}</div>
+                            </div>
+                        `;
+                    }
+                    
+                    resultsHTML += `</div>`;
+                }
+            }
+            
+            document.getElementById('resultPanel').innerHTML = resultsHTML;
         }
 
         // 启动
