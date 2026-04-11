@@ -285,7 +285,7 @@
             planets = pRes;
             renderSignals();
             renderPlanets();
-            loadHistory();
+            await loadHistory();
         } catch (e) {
             console.error("Initialization failed", e);
         }
@@ -369,7 +369,7 @@
             });
             const data = await res.json();
             displayResult(data);
-            addToHistory(data);
+            await updateHistoryList();
         } catch (e) {
             alert("通信异常");
         } finally {
@@ -426,6 +426,19 @@
             contentHtml = `<p style="font-size:14px; color:#ccc;">${data.result || data.raw_text || "解码无有效负载"}</p>`;
         }
 
+        // 添加完整文本显示部分
+        let fullTextHtml = '';
+        if (data.full_text) {
+            fullTextHtml = `
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,212,255,0.1);">
+                    <h4 style="color:#00d4ff; margin-bottom:10px; font-size:14px;">🔬 完整解码内容</h4>
+                    <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; max-height: 200px; overflow-y: auto; font-size: 12px; line-height: 1.5; color: #aaa; white-space: pre-wrap;">
+                        ${data.full_text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+                    </div>
+                </div>
+            `;
+        }
+
         panel.innerHTML = `
             <div class="result-card">
                 <div class="meta-grid">
@@ -435,21 +448,14 @@
                     <div class="meta-box"><label>特征信号</label><span>${meta.signals.map(s=>s.name).join(' + ')}</span></div>
                 </div>
                 ${contentHtml}
+                ${fullTextHtml}
             </div>
         `;
     }
 
-    function addToHistory(data) {
-        const entry = {
-            id: Date.now(),
-            time: new Date().toLocaleTimeString(),
-            planet: selectedPlanet,
-            signals: Array.from(selectedSignals).join(', '),
-            fullData: data
-        };
-        history.unshift(entry);
-        saveHistory();
-        renderHistory();
+    // 更新历史记录列表，从服务器获取最新数据
+    async function updateHistoryList() {
+        await loadHistory(); // 重新从服务器加载历史记录
     }
 
     function renderHistory() {
@@ -479,12 +485,42 @@
         }
     }
 
-    function saveHistory() { localStorage.setItem('alien_history_pro_v2', JSON.stringify(history)); }
-    function loadHistory() {
-        const saved = localStorage.getItem('alien_history_pro_v2');
-        if (saved) { history = JSON.parse(saved); renderHistory(); }
+    async function saveHistory() {
+        try {
+            const response = await fetch('/api/history', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(history)
+            });
+            const result = await response.json();
+            if (!result.success) {
+                console.error('Failed to save history:', result.error);
+            }
+        } catch (e) {
+            console.error('Error saving history:', e);
+        }
     }
-    function clearHistory() { if(confirm('确定抹除所有历史观测数据？')) { history = []; renderHistory(); saveHistory(); } }
+
+    async function loadHistory() {
+        try {
+            const response = await fetch('/api/history');
+            if (response.ok) {
+                history = await response.json();
+                renderHistory();
+            }
+        } catch (e) {
+            console.error('Error loading history:', e);
+            history = []; // 初始化为空数组以防错误
+        }
+    }
+
+    async function clearHistory() {
+        if (confirm('确定抹除所有历史观测数据？')) {
+            history = [];
+            renderHistory();
+            await saveHistory();
+        }
+    }
     
     function exportData() {
         const blob = new Blob([JSON.stringify(history)], {type: 'application/json'});

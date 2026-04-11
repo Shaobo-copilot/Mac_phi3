@@ -6,6 +6,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import os
 from datetime import datetime
+import threading
 
 app = Flask(__name__, static_folder='static')
 CORS(app)
@@ -43,6 +44,30 @@ def load_model():
         return device
     return None
 
+def load_history():
+    """从Raw Data/Storage.json加载历史记录"""
+    storage_file = os.path.join(app.root_path, '../Raw_Data/Storage.json')
+    try:
+        with open(storage_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+    except json.JSONDecodeError:
+        return []
+
+def save_history(history):
+    """保存历史记录到Raw Data/Storage.json"""
+    storage_file = os.path.join(app.root_path, '../Raw_Data/Storage.json')
+    try:
+        with open(storage_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+            print(f"✅ 成功保存 {len(history)} 条记录到 {storage_file}")
+        return True
+    except Exception as e:
+        print(f"Error saving history: {e}")
+        return False
+    
+
 @app.route('/')
 def index():
     return send_from_directory('static', 'index.html')
@@ -56,6 +81,24 @@ def get_signals():
 def get_planets():
     load_data()
     return jsonify(planets)
+
+@app.route('/api/history', methods=['GET'])
+def get_history():
+    """获取历史记录"""
+    history = load_history()
+    return jsonify(history)
+
+@app.route('/api/history', methods=['POST'])
+def save_history_api():
+    """保存历史记录"""
+    try:
+        data = request.get_json()
+        if save_history(data):
+            return jsonify({'success': True})
+        else:
+            return jsonify({'success': False, 'error': 'Failed to save history'}), 500
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/generate', methods=['POST'])
 def generate():
@@ -106,7 +149,7 @@ Their perception style:
 Explain how this civilization interprets the signals.
 Keep the answer within 2 sentences.
 """
-    
+
     inputs = tokenizer(prompt, return_tensors="pt")
     inputs = {k: v.to(device) for k, v in inputs.items()}
     
@@ -125,12 +168,28 @@ Keep the answer within 2 sentences.
     else:
         result_text = text.strip()
     
-    return jsonify({
-        'result': result_text,
-        'planet': planet,
+    # 创建响应数据
+    response_data = {
+        'result': result_text, #返回的代码，介绍了这个文明如何解读信号
+        'full_text': text, # 完整的解码文本
+        'planet': planet, #返回的星球信息
         'signals': chosen_signals,
         'timestamp': datetime.now().isoformat()
-    })
+    }
+    
+    # 将这次生成添加到历史记录
+    history = load_history()
+    history_entry = {
+        'id': int(datetime.now().timestamp() * 1000),  # 使用毫秒时间戳作为唯一ID
+        'time': datetime.now().strftime('%H:%M:%S'),
+        'planet': planet_name,
+        'signals': ', '.join(signal_names),
+        'fullData': response_data
+    }
+    history.insert(0, history_entry)  # 插入到开头
+    save_history(history)
+    
+    return jsonify(response_data)
 
 if __name__ == '__main__':
     load_data()
