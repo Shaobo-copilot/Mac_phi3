@@ -3,631 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alien Signal Generator</title>
+    <title>Alien Signal Pro - Batch Edition</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: radial-gradient(circle at top right, #1a1a2e, #16213e);
             color: #eee;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #00d4ff;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-            margin-bottom: 10px;
-        }
-
-        .toolbar {
+            padding: 12px 25px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            z-index: 10;
         }
+        h1 { font-size: 1.4em; color: #00d4ff; text-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
-            color: white;
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
-            color: white;
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #dc3545 0%, #bd2130 100%);
-            color: white;
-        }
-
-        .btn-random {
-            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
-            color: #1a1a2e;
-        }
-
-        .input-section {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .signals-container, .planet-container {
-            display: inline-block;
-            width: 48%;
-            vertical-align: top;
-        }
-        
-        .signals-container {
-            margin-right: 2%;
-        }
-        
-        .planet-container {
-            margin-left: 2%;
-        }
-        
-        .main-layout {
+        .app-main {
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            grid-template-columns: 340px 1fr 320px;
+            flex-grow: 1;
+            overflow: hidden;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .panel {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .scroll-panel {
+            background: #1a1a2e;
+            height: 100%;
+            overflow-y: auto;
+            padding: 15px;
         }
 
         .panel-title {
-            font-size: 1.2em;
-            color: #00d4ff;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #aaa;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .checkbox-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            margin-top: 4px;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-
-        .checkbox-info h4 {
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .checkbox-info p {
-            font-size: 12px;
-            color: #888;
-        }
-
-        .planet-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .planet-card {
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .planet-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .planet-card.selected {
-            border-color: #00d4ff;
-            background: rgba(0, 212, 255, 0.1);
-        }
-
-        .planet-card h4 {
-            color: #00d4ff;
-            margin-bottom: 5px;
-        }
-
-        .planet-card p {
-            font-size: 12px;
-            color: #888;
-        }
-
-        .slider-container {
-            margin-bottom: 15px;
-        }
-
-        .slider-value {
-            float: right;
-            color: #00d4ff;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            height: 6px;
-            border-radius: 3px;
-            background: rgba(255, 255, 255, 0.1);
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #00d4ff;
-            cursor: pointer;
-        }
-
-        .generate-btn {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-
-        .result-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .result-card {
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            border-left: 4px solid #00d4ff;
-        }
-
-        .result-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .result-meta {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .meta-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .meta-item h5 {
-            color: #00d4ff;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .meta-item p {
             font-size: 13px;
-            color: #ccc;
-        }
-
-        .history-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        .history-table th,
-        .history-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .history-table th {
-            background: rgba(0, 212, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: #00d4ff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 按钮与表单 */
+        .btn-group { display: flex; gap: 6px; margin-bottom: 15px; flex-wrap: wrap; }
+        .btn {
+            padding: 7px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
             font-weight: 600;
+            transition: 0.2s;
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
+        .btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-1px); }
+        .btn-primary { background: #00d4ff; color: #1a1a2e; }
+        .btn-success { background: #28a745; }
+        .btn-danger { background: #dc3545; }
+        .btn-warning { background: #ff9800; color: #1a1a2e; }
 
-        .history-table tr:hover {
-            background: rgba(255, 255, 255, 0.05);
+        /* 批量操作区 */
+        .batch-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px dashed rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
         }
-
-        .history-table button {
-            padding: 6px 12px;
+        .batch-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 4px;
+            margin: 8px 0;
             font-size: 12px;
         }
 
-        .loading {
-            display: none;
-            text-align: center;
+        .config-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 列表项样式 */
+        .item-list { max-height: 200px; overflow-y: auto; }
+        .signal-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .signal-item:hover { background: rgba(255, 255, 255, 0.05); }
+        .signal-item input { accent-color: #00d4ff; }
+
+        .planet-mini-card {
+            padding: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            font-size: 12px;
+            transition: 0.2s;
+        }
+        .planet-mini-card.selected {
+            border-left-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.12);
+        }
+
+        /* 结果展示 */
+        .result-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
             padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            animation: fadeIn 0.4s ease-out;
         }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .loading.active {
-            display: block;
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
         }
+        .meta-box { background: rgba(0, 0, 0, 0.2); padding: 8px 12px; border-radius: 6px; }
+        .meta-box label { font-size: 10px; color: #777; display: block; }
+        .meta-box span { font-size: 12px; color: #00d4ff; font-weight: 600; }
 
-        .spinner {
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #00d4ff;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
+        /* 历史记录项 */
+        .history-item {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s;
         }
+        .history-item:hover { border-color: rgba(0, 212, 255, 0.3); background: rgba(255, 255, 255, 0.06); }
+        .history-item.active { border-color: #00d4ff; background: rgba(0, 212, 255, 0.05); }
+        .history-item .time { font-size: 10px; color: #555; }
+        .history-item .title { font-size: 13px; color: #eee; margin: 3px 0; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        .history-item .tags { font-size: 11px; color: #888; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        /* 滚动条 */
+        .scroll-panel::-webkit-scrollbar { width: 5px; }
+        .scroll-panel::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
 
-        .selected-count {
-            background: #00d4ff;
-            color: #1a1a2e;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        #fileInput {
-            display: none;
+        #loadingOverlay {
+            position: absolute; top:0; left:0; right:0; bottom:0;
+            background: rgba(22, 33, 62, 0.85);
+            display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 100;
+            backdrop-filter: blur(4px);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🛸 Alien Signal Generator</h1>
-            <p style="color: #888;">外星文明信号解读器</p>
-        </header>
 
-        <div class="toolbar">
-            <button class="btn btn-success" onclick="exportData()">
-                📤 导出 JSON
-            </button>
-            <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
-                📥 导入 JSON
-            </button>
-            <input type="file" id="fileInput" accept=".json" onchange="importData(this)">
-            <button class="btn btn-danger" onclick="clearHistory()">
-                🗑️ 清空历史
-            </button>
-        </div>
-
-        <!-- 顶部生成控制区域 -->
-        <div class="panel" style="margin-bottom: 20px;">
-            <h2 class="panel-title">🚀 快速生成控制</h2>
-            
-            <div class="form-group" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                <button class="btn btn-random" onclick="randomizePlanet()">
-                    🎲 随机星球
-                </button>
-                
-                <button class="btn btn-random" onclick="randomizeSignals()">
-                    🎲 随机信号
-                </button>
-                
-                <button class="btn btn-primary generate-btn" onclick="generateResult()" style="min-width: 120px;">
-                    🚀 生成结果
-                </button>
-                
-                <div style="flex-grow: 1;"></div>
-                
-                <label class="form-label" style="margin-bottom: 0;">
-                    批量生成数量:
-                </label>
-                <input type="number" id="batchCount" placeholder="输入生成次数" min="1" max="1000" style="width: 120px; padding: 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white;">
-                
-                <div style="display: flex; gap: 15px;">
-                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
-                        <input type="checkbox" id="randomPlanetToggle" checked> 随机星球
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
-                        <input type="checkbox" id="randomSignalToggle" checked> 随机信号
-                    </label>
-                </div>
-                
-                <button class="btn btn-success" onclick="startBatchGeneration()" style="min-width: 120px;">
-                    🚀 批量生成
-                </button>
-            </div>
-        </div>
-
-        <div class="main-layout">
-            <div class="left-panel">
-                <div class="panel">
-                    <h2 class="panel-title">⚙️ 参数配置</h2>
-                    
-                    <div class="input-section">
-                        <div class="signals-container">
-                            <div class="form-group">
-                                <label class="form-label">
-                                    选择信号 (3 个)
-                                    <span class="selected-count" id="signalCount">0/3</span>
-                                </label>
-                                <div class="checkbox-group" id="signalList"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="planet-container">
-                            <div class="form-group">
-                                <label class="form-label">选择星球</label>
-                                <div class="planet-grid" id="planetList"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">
-                            Temperature
-                            <span class="slider-value" id="tempValue">0.7</span>
-                        </label>
-                        <div class="slider-container">
-                            <input type="range" id="temperature" min="0.1" max="1.5" step="0.1" value="0.7" oninput="document.getElementById('tempValue').textContent=this.value">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">
-                            Max Tokens
-                            <span class="slider-value" id="tokensValue">80</span>
-                        </label>
-                        <div class="slider-container">
-                            <input type="range" id="maxTokens" min="20" max="200" step="10" value="80" oninput="document.getElementById('tokensValue').textContent=this.value">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="right-panel">
-                <div class="panel">
-                    <h2 class="panel-title">✨ 生成结果</h2>
-                    <div class="loading" id="loading">
-                        <div class="spinner"></div>
-                        <p>正在生成中...</p>
-                    </div>
-                    <div class="result-panel" id="resultPanel">
-                        <div style="text-align: center; color: #666; padding: 40px;">
-                            <p>配置参数后点击"生成结果"按钮</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel">
-            <h2 class="panel-title">📊 历史记录</h2>
-            <table class="history-table">
-                <thead>
-                    <tr>
-                        <th>时间</th>
-                        <th>信号</th>
-                        <th>星球</th>
-                        <th>结果预览</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody id="historyBody"></tbody>
-            </table>
-        </div>
+<header>
+    <h1>🛸 Alien Signal Pro</h1>
+    <div class="btn-group" style="margin-bottom: 0;">
+        <button class="btn btn-success" onclick="exportData()">📤 导出</button>
+        <button class="btn" onclick="document.getElementById('fileInput').click()">📥 导入</button>
+        <button class="btn btn-danger" onclick="clearHistory()">🗑️ 清空</button>
+        <input type="file" id="fileInput" hidden accept=".json" onchange="importData(this)">
     </div>
+</header>
 
-    <script>
-        let signals = [];
-        let planets = [];
-        let history = [];
-        let selectedSignals = new Set();
-        let selectedPlanet = null;
-
-        // 初始化
-        async function init() {
-            console.log('=== Starting initialization ===');
-            try {
-                await loadSignals();
-                console.log('✓ Signals loaded:', signals.length);
-            } catch (err) {
-                console.error('✗ Failed to load signals:', err);
-                document.getElementById('signalList').innerHTML = '<p style="color:red">Error: ' + err.message + '</p>';
-            }
-            try {
-                await loadPlanets();
-                console.log('✓ Planets loaded:', planets.length);
-            } catch (err) {
-                console.error('✗ Failed to load planets:', err);
-                document.getElementById('planetList').innerHTML = '<p style="color:red">Error: ' + err.message + '</p>';
-            }
-            loadHistory();
-            console.log('=== Initialization complete ===');
-        }
-
-        async function loadSignals() {
-            console.log('📡 Fetching signals...');
-            const res = await fetch('/api/signals');
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            signals = await res.json();
-            console.log('📥 Signals received:', signals.map(s => s.name));
-            renderSignals();
-        }
-
-        async function loadPlanets() {
-            console.log('🪐 Fetching planets...');
-            const res = await fetch('/api/planets');
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            planets = await res.json();
-            console.log('📥 Planets received:', planets.map(p => p.name));
-            renderPlanets();
-        }
-
-        function renderSignals() {
-            const container = document.getElementById('signalList');
-            container.innerHTML = signals.map(s => `
-                <label class="checkbox-item">
-                    <input type="checkbox" value="${s.name}" ${selectedSignals.has(s.name) ? 'checked' : ''} onchange="toggleSignal('${s.name}')">
-                    <div class="checkbox-info">
-                        <h4>${s.name}</h4>
-                        <p>${s.semantic_tags.join(', ')}</p>
-                    </div>
+<main class="app-main">
+    <aside class="scroll-panel">
+        <div class="batch-card">
+            <div class="panel-title">🚀 批量智能生成</div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <input type="number" id="batchCount" class="batch-input" value="5" min="1" max="50">
+                <span style="font-size: 12px; color: #666;">组</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 5px;">
+                <label style="font-size: 11px; color: #aaa; cursor:pointer;">
+                    <input type="checkbox" id="autoRandomPlanet" checked> 随机化星球
                 </label>
-            `).join('');
-        }
+                <label style="font-size: 11px; color: #aaa; cursor:pointer;">
+                    <input type="checkbox" id="autoRandomSignals" checked> 随机化信号
+                </label>
+            </div>
+            <button class="btn btn-warning" onclick="startBatchGeneration()" style="width:100%; margin-top:10px; justify-content: center;">
+                ⚡ 开始批量任务
+            </button>
+        </div>
 
-        function renderPlanets() {
-            const container = document.getElementById('planetList');
-            container.innerHTML = planets.map(p => `
-                <div class="planet-card ${selectedPlanet === p.name ? 'selected' : ''}" onclick="selectPlanet('${p.name}')">
-                    <h4>${p.name}</h4>
-                    <p><strong>文明:</strong> ${p.civilization_type}</p>
-                    <p><strong>感知:</strong> ${p.perception_style}</p>
-                </div>
-            `).join('');
-        }
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="generateResult()" style="flex-grow: 1; justify-content: center;">🚀 单次生成</button>
+        </div>
 
-        function toggleSignal(name) {
-            if (selectedSignals.has(name)) {
-                selectedSignals.delete(name);
-            } else {
-                if (selectedSignals.size >= 3) {
-                    alert('最多选择 3 个信号！');
-                    return;
-                }
-                selectedSignals.add(name);
+        <div class="config-card">
+            <div class="panel-title">📡 信号 (3个) <span id="signalCount" style="color:#888">0/3</span></div>
+            <div class="btn-group">
+                <button class="btn" style="padding: 4px 8px; font-size: 10px;" onclick="randomizeSignals()">🎲 随机选</button>
+            </div>
+            <div id="signalList" class="item-list"></div>
+        </div>
+
+        <div class="config-card">
+            <div class="panel-title">🪐 星球选择</div>
+            <div class="btn-group">
+                <button class="btn" style="padding: 4px 8px; font-size: 10px;" onclick="randomizePlanet()">🎲 随机选</button>
+            </div>
+            <div id="planetList" class="item-list"></div>
+        </div>
+
+        <div class="config-card">
+            <div class="panel-title">⚙️ 参数微调</div>
+            <label style="font-size:11px; color:#888">Temperature: <span id="tempValue">0.7</span></label>
+            <input type="range" id="temperature" min="0.1" max="1.5" step="0.1" value="0.7" oninput="document.getElementById('tempValue').textContent=this.value">
+            
+            <label style="font-size:11px; color:#888; display:block; margin-top:8px">Max Tokens: <span id="tokensValue">80</span></label>
+            <input type="range" id="maxTokens" min="20" max="200" step="10" value="80" oninput="document.getElementById('tokensValue').textContent=this.value">
+        </div>
+    </aside>
+
+    <section class="scroll-panel" style="background: #16213e; position: relative;">
+        <div id="loadingOverlay">
+            <div style="text-align: center;">
+                <div style="font-size: 24px; margin-bottom: 10px;">🛸</div>
+                <p id="loadingText">信号接收中...</p>
+                <p id="batchProgress" style="font-size: 12px; color: #00d4ff; margin-top: 5px;"></p>
+            </div>
+        </div>
+        <div id="resultPanel">
+            <div style="text-align: center; color: #444; padding-top: 120px;">
+                <div style="font-size: 40px; margin-bottom: 20px;">📡</div>
+                <p>等待初始化信号...</p>
+            </div>
+        </div>
+    </section>
+
+    <aside class="scroll-panel" style="border-left: 1px solid rgba(255,255,255,0.05);">
+        <div class="panel-title">🕒 解码历史 (点击回溯)</div>
+        <div id="historyList"></div>
+    </aside>
+</main>
+
+<script>
+    let signals = [];
+    let planets = [];
+    let history = [];
+    let selectedSignals = new Set();
+    let selectedPlanet = null;
+    let isBatching = false;
+
+    async function init() {
+        try {
+            const [sRes, pRes] = await Promise.all([
+                fetch('/api/signals').then(r => r.json()),
+                fetch('/api/planets').then(r => r.json())
+            ]);
+            signals = sRes;
+            planets = pRes;
+            renderSignals();
+            renderPlanets();
+            loadHistory();
+        } catch (e) {
+            console.error("Initialization failed", e);
+        }
+    }
+
+    // 渲染 UI
+    function renderSignals() {
+        const container = document.getElementById('signalList');
+        container.innerHTML = signals.map(s => `
+            <label class="signal-item">
+                <input type="checkbox" value="${s.name}" ${selectedSignals.has(s.name) ? 'checked' : ''} 
+                    onchange="toggleSignal('${s.name}')">
+                <span>${s.name}</span>
+            </label>
+        `).join('');
+        document.getElementById('signalCount').textContent = `${selectedSignals.size}/3`;
+    }
+
+    function renderPlanets() {
+        const container = document.getElementById('planetList');
+        container.innerHTML = planets.map(p => `
+            <div class="planet-mini-card ${selectedPlanet === p.name ? 'selected' : ''}" 
+                onclick="selectPlanet('${p.name}')">
+                ${p.name}
+                <span style="font-size:10px; color:#555; float:right">${p.civilization_type.split(' ')[0]}</span>
+            </div>
+        `).join('');
+    }
+
+    // 交互逻辑
+    function toggleSignal(name) {
+        if (selectedSignals.has(name)) {
+            selectedSignals.delete(name);
+        } else {
+            if (selectedSignals.size >= 3) {
+                const first = selectedSignals.values().next().value;
+                selectedSignals.delete(first);
             }
-            updateSignalCount();
-            renderSignals();
+            selectedSignals.add(name);
+        }
+        renderSignals(); 
+    }
+
+    function selectPlanet(name) {
+        selectedPlanet = name;
+        renderPlanets();
+    }
+
+    function randomizeSignals() {
+        const shuffled = [...signals].sort(() => 0.5 - Math.random());
+        selectedSignals = new Set(shuffled.slice(0, 3).map(s => s.name));
+        renderSignals();
+    }
+
+    function randomizePlanet() {
+        const random = planets[Math.floor(Math.random() * planets.length)];
+        selectedPlanet = random.name;
+        renderPlanets();
+    }
+
+    // 单次生成
+    async function generateResult() {
+        if (selectedSignals.size !== 3 || !selectedPlanet) {
+            alert('配置未就绪：请确保选择了3个信号和1个星球');
+            return;
         }
 
-        function selectPlanet(name) {
-            selectedPlanet = name;
-            renderPlanets();
-        }
-
-        function randomizePlanet() {
-            const random = planets[Math.floor(Math.random() * planets.length)];
-            selectedPlanet = random.name;
-            renderPlanets();
-        }
-
-        function randomizeSignals() {
-            const shuffled = [...signals].sort(() => 0.5 - Math.random());
-            const randomSignals = shuffled.slice(0, 3);
-            
-            selectedSignals.clear();
-            
-            randomSignals.forEach(signal => {
-                selectedSignals.add(signal.name);
-            });
-            
-            updateSignalCount();
-            renderSignals();
-        }
-
-        function updateSignalCount() {
-            document.getElementById('signalCount').textContent = `${selectedSignals.size}/3`;
-        }
-
-        let batchResults = []; // 存储批量生成的结果
+        const loader = document.getElementById('loadingOverlay');
+        loader.style.display = 'flex';
         
-        async function generateResult() {
-            if (selectedSignals.size !== 3) {
-                alert('请选择 exactly 3 个信号！');
-                return;
-            }
-            if (!selectedPlanet) {
-                alert('请选择一个星球！');
-                return;
-            }
-
-            document.getElementById('loading').classList.add('active');
-            document.getElementById('resultPanel').innerHTML = '';
-
-            const result = await fetch('/api/generate', {
+        try {
+            const res = await fetch('/api/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -636,561 +366,148 @@
                     temperature: parseFloat(document.getElementById('temperature').value),
                     max_new_tokens: parseInt(document.getElementById('maxTokens').value)
                 })
-            }).then(res => res.json());
+            });
+            const data = await res.json();
+            displayResult(data);
+            addToHistory(data);
+        } catch (e) {
+            alert("通信异常");
+        } finally {
+            if(!isBatching) loader.style.display = 'none';
+        }
+    }
 
-            document.getElementById('loading').classList.remove('active');
-            console.log('✓ Result received:', result);
-            displayResult(result);
-            addToHistory(result);
+    // 批量生成功能
+    async function startBatchGeneration() {
+        const count = parseInt(document.getElementById('batchCount').value);
+        if (count < 1 || count > 50) return alert("建议数量 1-50 组");
+        
+        isBatching = true;
+        const loader = document.getElementById('loadingOverlay');
+        const progress = document.getElementById('batchProgress');
+        loader.style.display = 'flex';
+        
+        const randomP = document.getElementById('autoRandomPlanet').checked;
+        const randomS = document.getElementById('autoRandomSignals').checked;
+
+        for (let i = 0; i < count; i++) {
+            progress.textContent = `正在生成第 ${i + 1} / ${count} 组...`;
+            
+            if (randomP) randomizePlanet();
+            if (randomS) randomizeSignals();
+            
+            // 执行单次生成逻辑
+            await generateResult();
         }
 
-        // ============================================================
-        // 修复后的函数 1：displayResult()
-        // ============================================================
-        function displayResult(data) {
-            console.log('Display data:', data);  // 调试用
-            
-            // 处理新的后端 API 格式
-            if (data.sections) {
-                // 新格式：sections + metadata
-                const sections = data.sections;
-                const metadata = data.metadata;
-                
-                let html = '';
-                
-                // 显示元数据（星球、文明、信号等）
-                html += `
-                    <div class="result-card">
-                        <div class="result-meta">
-                            <div class="meta-item">
-                                <h5>🪐 观测星球</h5>
-                                <p>${escapeHtml(metadata.planet.name)}</p>
-                            </div>
-                            <div class="meta-item">
-                                <h5>🧠 文明类型</h5>
-                                <p>${escapeHtml(metadata.civilization_type)}</p>
-                            </div>
-                            <div class="meta-item">
-                                <h5>👁️ 感知方式</h5>
-                                <p>${escapeHtml(metadata.perception_style)}</p>
-                            </div>
-                            <div class="meta-item">
-                                <h5>📡 接收信号</h5>
-                                <p>${metadata.signals.map(s => s.name).join(', ')}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                // 显示各个 section
-                const sectionOrder = [
-                    { key: 'semantic_interpretation', icon: '📝', title: '语义解释' },
-                    { key: 'civilization_context', icon: '🏛️', title: '文明背景' },
-                    { key: 'perception_influence', icon: '👁️', title: '感知影响' },
-                    { key: 'final_conclusion', icon: '🎯', title: '综合结论' }
-                ];
-                
-                for (const section of sectionOrder) {
-                    const sectionData = sections[section.key];
-                    if (sectionData && sectionData.content) {
-                        html += `
-                            <div class="result-card">
-                                <h4 style="color: #00d4ff; margin-bottom: 12px; display: flex; align-items: center;">
-                                    <span style="margin-right: 8px;">${section.icon}</span>
-                                    ${sectionData.title}
-                                </h4>
-                                <div class="result-text">${escapeHtml(sectionData.content)}</div>
-                            </div>
-                        `;
-                    }
-                }
-                
-                // 如果没有任何 sections，显示 raw_text 作为备选
-                const hasContent = Object.values(sections).some(s => s && s.content);
-                if (!hasContent && data.raw_text) {
-                    html += `
-                        <div class="result-card">
-                            <h4 style="color: #ffc107;">⚠️ 原始输出</h4>
-                            <div class="result-text">${escapeHtml(data.raw_text)}</div>
-                        </div>
-                    `;
-                }
-                
-                document.getElementById('resultPanel').innerHTML = html;
-            } 
-            // 中间格式：新字段但没有sections结构
-            else if (data.result) {
-                // 从后端API获取的格式
-                let html = '';
-                
-                // 显示元数据（星球、信号等）
-                html += `
-                    <div class="result-card">
-                        <div class="result-meta">
-                            <div class="meta-item">
-                                <h5>🪐 观测星球</h5>
-                                <p>${escapeHtml(data.planet ? data.planet.name : '未知')}</p>
-                            </div>
-                            <div class="meta-item">
-                                <h5>📡 接收信号</h5>
-                                <p>${data.signals ? data.signals.map(s => s.name).join(', ') : '未知'}</p>
-                            </div>
-                            <div class="meta-item">
-                                <h5>⏰ 生成时间</h5>
-                                <p>${new Date(data.timestamp).toLocaleString()}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                // 显示生成的主要内容
-                html += `
-                    <div class="result-card">
-                        <h4 style="color: #00d4ff; margin-bottom: 12px;">🚀 生成结果</h4>
-                        <div class="result-text">${escapeHtml(data.result)}</div>
-                    </div>
-                `;
-                
-                document.getElementById('resultPanel').innerHTML = html;
-            }
-            // 向后兼容：旧格式
-            else if (data.planet_analysis) {
-                document.getElementById('resultPanel').innerHTML = `
-                    <div class="result-card">
-                        <h4 style="color: #00d4ff; margin-bottom: 12px;">🪐 星球分析</h4>
-                        <div class="result-text">${escapeHtml(data.planet_analysis)}</div>
-                    </div>
-                    <div class="result-card">
-                        <h4 style="color: #00d4ff; margin-bottom: 12px;">🏛️ 文明分析</h4>
-                        <div class="result-text">${escapeHtml(data.civilization_analysis)}</div>
-                    </div>
-                    <div class="result-card">
-                        <h4 style="color: #00d4ff; margin-bottom: 12px;">👁️ 感知分析</h4>
-                        <div class="result-text">${escapeHtml(data.perception_analysis)}</div>
-                    </div>
-                    <div class="result-card">
-                        <h4 style="color: #00d4ff; margin-bottom: 12px;">📡 信号分析</h4>
-                        <div class="result-text">${escapeHtml(data.signal_analysis)}</div>
-                    </div>
-                `;
-            }
-        }
+        isBatching = false;
+        loader.style.display = 'none';
+        progress.textContent = "";
+    }
 
-        // ============================================================
-        // 修复后的函数 2：addToHistory()
-        // ============================================================
-        function addToHistory(data) {
-            console.log('Adding to history:', data);
-            
-            let resultText = '';
-            
-            // 新格式
-            if (data.sections) {
-                resultText = Object.values(data.sections)
-                    .filter(s => s && s.content)
-                    .map(s => `${s.title}: ${s.content}`)
-                    .join(' | ')
-                    .substring(0, 150);
-            }
-            // 中间格式：从API返回的数据
-            else if (data.result) {
-                resultText = data.result.substring(0, 150);
-            }
-            // 旧格式
-            else if (data.signal_analysis) {
-                resultText = data.signal_analysis.substring(0, 150);
-            }
-            
-            // 获取星球和信号数据
-            let planetData, signalsData;
-            if (data.metadata) {
-                // 新格式
-                planetData = data.metadata.planet;
-                signalsData = data.metadata.signals;
-            } else if (data.planet) {
-                // API返回格式
-                planetData = data.planet;
-                signalsData = data.signals;
-            } else {
-                // 旧格式
-                planetData = data.planet_info;
-                signalsData = data.signals || [];
-            }
-            
-            const entry = {
-                id: Date.now(),
-                timestamp: data.timestamp || (data.metadata ? data.metadata.timestamp : new Date().toISOString()),
-                signals: signalsData ? signalsData.map(s => s.name).join(', ') : 'Unknown',
-                planet: planetData ? planetData.name : 'Unknown',
-                result: resultText,
-                planet_info: planetData,
-                sections: data.sections || null,
-                full_data: data
-            };
-            
-            history.unshift(entry);
-            renderHistory();
-            saveHistory();
-        }
-
-        function renderHistory() {
-            const tbody = document.getElementById('historyBody');
-            tbody.innerHTML = history.map(h => `
-                <tr>
-                    <td>${new Date(h.timestamp).toLocaleString()}</td>
-                    <td>${h.signals}</td>
-                    <td>${h.planet}</td>
-                    <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(h.result)}</td>
-                    <td>
-                        <button class="btn btn-primary" onclick="loadHistoryEntry(${h.id})">加载</button>
-                    </td>
-                </tr>
+    function displayResult(data) {
+        const panel = document.getElementById('resultPanel');
+        const meta = data.metadata || { 
+            planet: { name: selectedPlanet }, 
+            signals: Array.from(selectedSignals).map(n => ({name: n})),
+            civilization_type: "未知",
+            perception_style: "未知"
+        };
+        
+        let contentHtml = '';
+        if (data.sections) {
+            contentHtml = Object.values(data.sections).map(s => `
+                <div style="margin-bottom:18px">
+                    <h4 style="color:#00d4ff; margin-bottom:6px; font-size:14px;">● ${s.title}</h4>
+                    <p style="line-height:1.6; color:#bbb; font-size:13px">${s.content}</p>
+                </div>
             `).join('');
+        } else {
+            contentHtml = `<p style="font-size:14px; color:#ccc;">${data.result || data.raw_text || "解码无有效负载"}</p>`;
         }
 
-        function loadHistoryEntry(id) {
-            const entry = history.find(h => h.id === id);
-            if (entry) {
-                if (entry.full_data) {
-                    displayResult(entry.full_data);
-                } else {
-                    const reconstructedData = {
-                        planet_analysis: `关于${entry.planet}的分析`,
-                        civilization_analysis: `文明分析：${entry.planet_info.civilization_type}`,
-                        perception_analysis: `感知方式：${entry.planet_info.perception_style}`,
-                        signal_analysis: entry.result,
-                        signals: [],
-                        planet: entry.planet_info,
-                        timestamp: entry.timestamp
-                    };
-                    displayResult(reconstructedData);
-                }
-            }
-        }
+        panel.innerHTML = `
+            <div class="result-card">
+                <div class="meta-grid">
+                    <div class="meta-box"><label>观测坐标</label><span>${meta.planet.name}</span></div>
+                    <div class="meta-box"><label>文明等级</label><span>${meta.civilization_type}</span></div>
+                    <div class="meta-box"><label>感知模态</label><span>${meta.perception_style}</span></div>
+                    <div class="meta-box"><label>特征信号</label><span>${meta.signals.map(s=>s.name).join(' + ')}</span></div>
+                </div>
+                ${contentHtml}
+            </div>
+        `;
+    }
 
-        function clearHistory() {
-            if (confirm('确定要清空所有历史记录吗？')) {
-                history = [];
+    function addToHistory(data) {
+        const entry = {
+            id: Date.now(),
+            time: new Date().toLocaleTimeString(),
+            planet: selectedPlanet,
+            signals: Array.from(selectedSignals).join(', '),
+            fullData: data
+        };
+        history.unshift(entry);
+        saveHistory();
+        renderHistory();
+    }
+
+    function renderHistory() {
+        const container = document.getElementById('historyList');
+        container.innerHTML = history.map(h => `
+            <div class="history-item" onclick="loadHistoryEntry(${h.id})" data-id="${h.id}">
+                <div class="time">${h.time}</div>
+                <div class="title">🪐 ${h.planet}</div>
+                <div class="tags">📡 ${h.signals}</div>
+            </div>
+        `).join('');
+    }
+
+    function loadHistoryEntry(id) {
+        const h = history.find(item => item.id === id);
+        if (h) {
+            // 高亮当前历史项
+            document.querySelectorAll('.history-item').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.history-item[data-id="${id}"]`)?.classList.add('active');
+
+            // 还原参数并同步 UI
+            selectedPlanet = h.planet;
+            selectedSignals = new Set(h.signals.split(', '));
+            renderPlanets();
+            renderSignals();
+            displayResult(h.fullData);
+        }
+    }
+
+    function saveHistory() { localStorage.setItem('alien_history_pro_v2', JSON.stringify(history)); }
+    function loadHistory() {
+        const saved = localStorage.getItem('alien_history_pro_v2');
+        if (saved) { history = JSON.parse(saved); renderHistory(); }
+    }
+    function clearHistory() { if(confirm('确定抹除所有历史观测数据？')) { history = []; renderHistory(); saveHistory(); } }
+    
+    function exportData() {
+        const blob = new Blob([JSON.stringify(history)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url;
+        a.download = `alien_export_${Date.now()}.json`; a.click();
+    }
+    
+    function importData(input) {
+        const reader = new FileReader();
+        reader.onload = e => {
+            try {
+                const data = JSON.parse(e.target.result);
+                history = Array.isArray(data) ? data : (data.history || []);
                 renderHistory();
                 saveHistory();
-            }
-        }
+                alert("导入成功");
+            } catch(e) { alert("导入失败：无效的 JSON 文件"); }
+        };
+        reader.readAsText(input.files[0]);
+    }
 
-        function exportData() {
-            const data = {
-                history: history,
-                exportedAt: new Date().toISOString()
-            };
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `alien_signals_${Date.now()}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function importData(input) {
-            const file = input.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    if (data.history && Array.isArray(data.history)) {
-                        history = data.history;
-                        renderHistory();
-                        saveHistory();
-                        alert(`成功导入 ${history.length} 条记录！`);
-                    } else {
-                        alert('无效的 JSON 格式！');
-                    }
-                } catch (err) {
-                    alert('读取文件失败：' + err.message);
-                }
-            };
-            reader.readAsText(file);
-            input.value = '';
-        }
-
-        function saveHistory() {
-            localStorage.setItem('alien_signals_history', JSON.stringify(history));
-        }
-
-        function loadHistory() {
-            const saved = localStorage.getItem('alien_signals_history');
-            if (saved) {
-                try {
-                    history = JSON.parse(saved);
-                    renderHistory();
-                } catch (err) {
-                    console.error('加载历史失败:', err);
-                }
-            }
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // 批量生成功能
-        async function startBatchGeneration() {
-            const count = parseInt(document.getElementById('batchCount').value);
-            if (!count || count <= 0) {
-                alert('请输入有效的生成数量！');
-                return;
-            }
-            
-            if (count > 100) {
-                if (!confirm(`您要批量生成 ${count} 条数据，这可能需要较长时间，是否继续？`)) {
-                    return;
-                }
-            }
-
-            const randomPlanetEnabled = document.getElementById('randomPlanetToggle').checked;
-            const randomSignalEnabled = document.getElementById('randomSignalToggle').checked;
-
-            document.getElementById('loading').classList.add('active');
-            document.getElementById('resultPanel').innerHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff;">正在批量生成中... (0/${count})</div>`;
-            
-            // 保存原始选择，以便在固定模式下恢复
-            const originalSelectedSignals = new Set(selectedSignals);
-            const originalSelectedPlanet = selectedPlanet;
-
-            // 清空之前的批量结果
-            batchResults = [];
-
-            for (let i = 0; i < count; i++) {
-                // 根据设置决定是否随机化
-                if (randomPlanetEnabled) {
-                    randomizePlanet();
-                } else {
-                    // 如果不随机，则保持原来的选择
-                    selectedPlanet = originalSelectedPlanet;
-                    renderPlanets();
-                }
-                
-                if (randomSignalEnabled) {
-                    randomizeSignals();
-                } else {
-                    // 如果不随机，则保持原来的选择
-                    selectedSignals = new Set(originalSelectedSignals);
-                    updateSignalCount();
-                    renderSignals();
-                }
-                
-                // 更新进度
-                document.getElementById('resultPanel').innerHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff;">正在批量生成中... (${i+1}/${count})</div>`;
-                
-                try {
-                    // 调用生成函数
-                    const result = await generateSingleResultForBatch();
-                    batchResults.push(result); // 收集结果
-                } catch (error) {
-                    console.error('批量生成错误:', error);
-                    alert(`在生成第 ${i+1} 条时发生错误: ${error.message}`);
-                    break;
-                }
-            }
-
-            document.getElementById('loading').classList.remove('active');
-            
-            // 显示批量生成完成信息和结果概览
-            let resultsHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff; margin-bottom: 20px;">批量生成完成！共生成 ${count} 条结果。</div>`;
-            
-            // 显示最近的几个结果（比如最新的5个）
-            const recentCount = Math.min(5, batchResults.length);
-            resultsHTML += `<div style="text-align: center; margin-bottom: 15px; color: #aaa;">以下是最新 ${recentCount} 条结果：</div>`;
-            
-            // 显示最近的结果
-            for (let i = batchResults.length - recentCount; i < batchResults.length; i++) {
-                const result = batchResults[i];
-                if (result) {
-                    let previewText = '无预览';
-                    if (result.sections) {
-                        previewText = Object.values(result.sections)
-                            .filter(s => s && s.content)
-                            .map(s => s.content.substring(0, 100))
-                            .join(' ... ');
-                    } else if (result.result) {
-                        previewText = result.result.substring(0, 150);
-                    } else if (result.signal_analysis) {
-                        previewText = result.signal_analysis.substring(0, 150);
-                    }
-                    
-                    resultsHTML += `
-                        <div class="result-card" style="margin-bottom: 15px;">
-                            <div class="result-meta" style="margin-bottom: 10px;">
-                                <div class="meta-item">
-                                    <h5>🪐 星球</h5>
-                                    <p>${result.metadata ? result.metadata.planet.name : (result.planet ? result.planet.name : 'N/A')}</p>
-                                </div>
-                                <div class="meta-item">
-                                    <h5>📡 信号</h5>
-                                    <p>${result.metadata ? result.metadata.signals.map(s => s.name).join(', ') : (result.signals ? result.signals.map(s => s.name).join(', ') : 'N/A')}</p>
-                                </div>
-                            </div>
-                            <div class="result-text" style="font-size: 0.9em; color: #ccc;">${escapeHtml(previewText)}...</div>
-                        </div>
-                    `;
-                }
-            }
-            
-            // 添加按钮让用户查看所有结果
-            if (batchResults.length > 0) {
-                resultsHTML += `<div style="text-align: center; margin-top: 20px;">
-                    <button class="btn btn-primary" onclick="showAllBatchResults()" style="padding: 10px 20px;">查看所有 ${batchResults.length} 条结果</button>
-                </div>`;
-            }
-            
-            document.getElementById('resultPanel').innerHTML = resultsHTML;
-            
-            // 恢复原始选择
-            selectedSignals = originalSelectedSignals;
-            selectedPlanet = originalSelectedPlanet;
-            renderSignals();
-            renderPlanets();
-        }
-
-        // 单次生成函数（用于批量生成内部调用）
-        async function generateSingleResultForBatch() {
-            if (selectedSignals.size !== 3) {
-                throw new Error('请选择 exactly 3 个信号！');
-            }
-            if (!selectedPlanet) {
-                throw new Error('请选择一个星球！');
-            }
-
-            const result = await fetch('/api/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    signal_names: Array.from(selectedSignals),
-                    planet_name: selectedPlanet,
-                    temperature: parseFloat(document.getElementById('temperature').value),
-                    max_new_tokens: parseInt(document.getElementById('maxTokens').value)
-                })
-            }).then(res => res.json());
-
-            console.log('✓ Result received:', result);
-            addToHistory(result); // 添加到历史记录
-            return result; // 返回结果供批量收集
-        }
-
-        // 显示所有批量生成结果
-        function showAllBatchResults() {
-            if (!batchResults || batchResults.length === 0) {
-                alert('没有批量生成的结果可以显示！');
-                return;
-            }
-
-            // 创建结果面板HTML
-            let resultsHTML = `<div style="text-align: center; padding: 20px; color: #00d4ff; margin-bottom: 20px;">共 ${batchResults.length} 条批量生成结果</div>`;
-            
-            // 反向遍历，最新的结果在最前面
-            for (let i = batchResults.length - 1; i >= 0; i--) {
-                const result = batchResults[i];
-                if (result) {
-                    // 使用现有的displayResult函数来显示每个结果
-                    const resultIndex = batchResults.length - i; // 从1开始编号
-                    resultsHTML += `<div class="result-card" style="margin-bottom: 20px; border-left: 4px solid #ff6b6b;">
-                        <div style="text-align: right; margin-bottom: 10px; color: #ff6b6b; font-weight: bold;"># ${resultIndex}</div>`;
-                    
-                    // 根据结果格式显示内容
-                    if (result.sections) {
-                        // 新格式：sections + metadata
-                        const sections = result.sections;
-                        const metadata = result.metadata;
-                        
-                        resultsHTML += `
-                            <div class="result-meta" style="margin-bottom: 15px;">
-                                <div class="meta-item">
-                                    <h5>🪐 观测星球</h5>
-                                    <p>${escapeHtml(metadata.planet.name)}</p>
-                                </div>
-                                <div class="meta-item">
-                                    <h5>🧠 文明类型</h5>
-                                    <p>${escapeHtml(metadata.civilization_type)}</p>
-                                </div>
-                                <div class="meta-item">
-                                    <h5>👁️ 感知方式</h5>
-                                    <p>${escapeHtml(metadata.perception_style)}</p>
-                                </div>
-                                <div class="meta-item">
-                                    <h5>📡 接收信号</h5>
-                                    <p>${metadata.signals.map(s => s.name).join(', ')}</p>
-                                </div>
-                            </div>
-                        `;
-                        
-                        // 显示各个 section
-                        const sectionOrder = [
-                            { key: 'semantic_interpretation', icon: '📝', title: '语义解释' },
-                            { key: 'civilization_context', icon: '🏛️', title: '文明背景' },
-                            { key: 'perception_influence', icon: '👁️', title: '感知影响' },
-                            { key: 'final_conclusion', icon: '🎯', title: '综合结论' }
-                        ];
-                        
-                        for (const section of sectionOrder) {
-                            const sectionData = sections[section.key];
-                            if (sectionData && sectionData.content) {
-                                resultsHTML += `
-                                    <div class="result-card">
-                                        <h4 style="color: #00d4ff; margin-bottom: 12px; display: flex; align-items: center;">
-                                            <span style="margin-right: 8px;">${section.icon}</span>
-                                            ${sectionData.title}
-                                        </h4>
-                                        <div class="result-text">${escapeHtml(sectionData.content)}</div>
-                                    </div>
-                                `;
-                            }
-                        }
-                        
-                        // 如果没有任何 sections，显示 raw_text 作为备选
-                        const hasContent = Object.values(sections).some(s => s && s.content);
-                        if (!hasContent && result.raw_text) {
-                            resultsHTML += `
-                                <div class="result-card">
-                                    <h4 style="color: #ffc107;">⚠️ 原始输出</h4>
-                                    <div class="result-text">${escapeHtml(result.raw_text)}</div>
-                                </div>
-                            `;
-                        }
-                    } 
-                    // 向后兼容：旧格式
-                    else if (result.planet_analysis) {
-                        resultsHTML += `
-                            <div class="result-card">
-                                <h4 style="color: #00d4ff; margin-bottom: 12px;">🪐 星球分析</h4>
-                                <div class="result-text">${escapeHtml(result.planet_analysis)}</div>
-                            </div>
-                            <div class="result-card">
-                                <h4 style="color: #00d4ff; margin-bottom: 12px;">🏛️ 文明分析</h4>
-                                <div class="result-text">${escapeHtml(result.civilization_analysis)}</div>
-                            </div>
-                            <div class="result-card">
-                                <h4 style="color: #00d4ff; margin-bottom: 12px;">👁️ 感知分析</h4>
-                                <div class="result-text">${escapeHtml(result.perception_analysis)}</div>
-                            </div>
-                            <div class="result-card">
-                                <h4 style="color: #00d4ff; margin-bottom: 12px;">📡 信号分析</h4>
-                                <div class="result-text">${escapeHtml(result.signal_analysis)}</div>
-                            </div>
-                        `;
-                    }
-                    
-                    resultsHTML += `</div>`;
-                }
-            }
-            
-            document.getElementById('resultPanel').innerHTML = resultsHTML;
-        }
-
-        // 启动
-        init();
-    </script>
+    init();
+</script>
 </body>
 </html>
