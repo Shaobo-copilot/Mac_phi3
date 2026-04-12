@@ -107,7 +107,7 @@ def generate():
     data = request.get_json()
     signal_names = data.get('signal_names', [])
     planet_name = data.get('planet_name', '')
-    temperature = data.get('temperature', 0.7)
+    temperature = data.get('temperature', 0.2)
     max_new_tokens = data.get('max_new_tokens', 80)
     
     # 首次调用时加载模型

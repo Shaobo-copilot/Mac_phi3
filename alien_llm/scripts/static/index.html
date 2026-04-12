@@ -54,6 +54,45 @@
             align-items: center;
             justify-content: space-between;
         }
+        /* 修改：将全屏遮罩改为右上角的浮动指示器 */
+
+        #loadingOverlay {
+            position: fixed;
+            top: 5px;
+            right: 300px;
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid #00d4ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: none; /* 默认隐藏 */
+            flex-direction: row; /* 横向排列 */
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        /* 呼吸灯动画 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.2); }
+        }
+
+        /* 让加载中的图标转起来 */
+        .spinner {
+            animation: rotate 2s linear infinite;
+            font-size: 18px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 确保主面板不再被遮盖，去掉中间的 loading 样式 */
 
         /* 按钮与表单 */
         .btn-group { display: flex; gap: 6px; margin-bottom: 15px; flex-wrap: wrap; }
@@ -173,13 +212,6 @@
         /* 滚动条 */
         .scroll-panel::-webkit-scrollbar { width: 5px; }
         .scroll-panel::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
-
-        #loadingOverlay {
-            position: absolute; top:0; left:0; right:0; bottom:0;
-            background: rgba(22, 33, 62, 0.85);
-            display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 100;
-            backdrop-filter: blur(4px);
-        }
     </style>
 </head>
 <body>
@@ -237,8 +269,8 @@
 
         <div class="config-card">
             <div class="panel-title">⚙️ 参数微调</div>
-            <label style="font-size:11px; color:#888">Temperature: <span id="tempValue">0.7</span></label>
-            <input type="range" id="temperature" min="0.1" max="1.5" step="0.1" value="0.7" oninput="document.getElementById('tempValue').textContent=this.value">
+            <label style="font-size:11px; color:#888">Temperature: <span id="tempValue">0.2</span></label>
+            <input type="range" id="temperature" min="0.1" max="1.5" step="0.1" value="0.2" oninput="document.getElementById('tempValue').textContent=this.value">
             
             <label style="font-size:11px; color:#888; display:block; margin-top:8px">Max Tokens: <span id="tokensValue">80</span></label>
             <input type="range" id="maxTokens" min="20" max="200" step="10" value="80" oninput="document.getElementById('tokensValue').textContent=this.value">
@@ -247,10 +279,10 @@
 
     <section class="scroll-panel" style="background: #16213e; position: relative;">
         <div id="loadingOverlay">
-            <div style="text-align: center;">
-                <div style="font-size: 24px; margin-bottom: 10px;">🛸</div>
-                <p id="loadingText">信号接收中...</p>
-                <p id="batchProgress" style="font-size: 12px; color: #00d4ff; margin-top: 5px;"></p>
+            <div class="spinner">🛸</div>
+            <div>
+                <p id="loadingText" style="font-size: 12px; margin: 0; font-weight: bold;">信号接收中...</p>
+                <p id="batchProgress" style="font-size: 10px; color: #00d4ff; margin: 0;"></p>
             </div>
         </div>
         <div id="resultPanel">
@@ -346,7 +378,7 @@
         renderPlanets();
     }
 
-    // 单次生成
+    // 修改后的单次生成函数
     async function generateResult() {
         if (selectedSignals.size !== 3 || !selectedPlanet) {
             alert('配置未就绪：请确保选择了3个信号和1个星球');
@@ -354,7 +386,7 @@
         }
 
         const loader = document.getElementById('loadingOverlay');
-        loader.style.display = 'flex';
+        loader.style.display = 'flex'; // 显示右上角指示器
         
         try {
             const res = await fetch('/api/generate', {
@@ -368,16 +400,23 @@
                 })
             });
             const data = await res.json();
-            displayResult(data);
-            await updateHistoryList();
+            
+            // 关键：只有当“当前不是批量模式”或者“批量模式的最后一步”时，才自动跳转显示最新结果
+            // 这样可以防止用户在看历史记录时，被突然弹出的新结果打断
+            if (!isBatching) {
+                displayResult(data);
+            }
+            
+            await updateHistoryList(); // 更新后台历史
         } catch (e) {
-            alert("通信异常");
+            console.error("通信异常", e);
         } finally {
+            // 如果不是批量任务，生成完就隐藏
             if(!isBatching) loader.style.display = 'none';
         }
     }
 
-    // 批量生成功能
+    // 批量生成函数无需大改，只需在结束时隐藏 loader
     async function startBatchGeneration() {
         const count = parseInt(document.getElementById('batchCount').value);
         if (count < 1 || count > 50) return alert("建议数量 1-50 组");
@@ -391,18 +430,17 @@
         const randomS = document.getElementById('autoRandomSignals').checked;
 
         for (let i = 0; i < count; i++) {
-            progress.textContent = `正在生成第 ${i + 1} / ${count} 组...`;
+            progress.textContent = `Progress: ${i + 1} / ${count}`;
             
             if (randomP) randomizePlanet();
             if (randomS) randomizeSignals();
             
-            // 执行单次生成逻辑
             await generateResult();
         }
 
         isBatching = false;
-        loader.style.display = 'none';
-        progress.textContent = "";
+        loader.style.display = 'none'; // 批量完成后隐藏
+        alert("批量解码任务已完成，请在历史记录中查看。");
     }
 
     function displayResult(data) {
@@ -423,7 +461,7 @@
                 </div>
             `).join('');
         } else {
-            contentHtml = `<p style="font-size:14px; color:#ccc;">${data.result || data.raw_text || "解码无有效负载"}</p>`;
+            contentHtml = `<p style="font-size:28px; color:#ccc;">${data.result || data.raw_text || "解码无有效负载"}</p>`;
         }
 
         // 添加完整文本显示部分
@@ -432,7 +470,7 @@
             fullTextHtml = `
                 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,212,255,0.1);">
                     <h4 style="color:#00d4ff; margin-bottom:10px; font-size:14px;">🔬 完整解码内容</h4>
-                    <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; max-height: 200px; overflow-y: auto; font-size: 12px; line-height: 1.5; color: #aaa; white-space: pre-wrap;">
+                    <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; max-height: 1200px; overflow-y: auto; font-size: 12px; line-height: 1.5; color: #aaa; white-space: pre-wrap;">
                         ${data.full_text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
                     </div>
                 </div>
@@ -544,6 +582,6 @@
     }
 
     init();
-</script>
+</script>    
 </body>
 </html>
