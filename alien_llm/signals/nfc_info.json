@@ -4,7 +4,7 @@
     "name": "Population(8340995923)",
     "signal_type": "numeric",
     "structure_tags": ["number_sequence"],
-    "semantic_tags": ["population", "demography"],
+    "semantic_tags": ["population", "statistical_data"],
     "inference_tags": ["large_scale_civilization"],
     "knowledge_domain": "mathematics"
   },
