@@ -1,5 +1,1118 @@
 [
   {
+    "id": 1775964417017,
+    "time": "11:26:57",
+    "planet": "K2-18b",
+    "signals": "Mondrian, Natural Number, Cat",
+    "fullData": {
+      "result": "The K2-18b civilization perceives 'animal' as a series of undulating movements in their aquatic environment, 'terrestrial_mammal' as an unusual, vertical current-disturbance with a distinct pattern, and 'abstract_art' as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. They",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from K2-18b (oceanic, fluid_pattern_recognition) receives these signals: animal, terrestrial_mammal, abstract_art, natural_numbers.\n        Explain their interpretation. The K2-18b civilization perceives 'animal' as a series of undulating movements in their aquatic environment, 'terrestrial_mammal' as an unusual, vertical current-disturbance with a distinct pattern, and 'abstract_art' as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. They",
+      "planet": {
+        "id": "PLANET_06",
+        "name": "K2-18b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "sub_neptune",
+          "water_vapor_detection"
+        ],
+        "inference_tags": [
+          "atmospheric_biosignature_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "oceanic",
+        "perception_style": "fluid_pattern_recognition",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T11:26:57.016163"
+    }
+  },
+  {
+    "id": 1775964408459,
+    "time": "11:26:48",
+    "planet": "Kepler-452b",
+    "signals": "Cat, Heart, Population(8340995923)",
+    "fullData": {
+      "result": "Kepler-452b's civilization, with their agricultural and scientific focus, interprets 'population' and 'demography' as patterns of growth and resource allocation within their own agricultural systems. They understand 'animal' and 'terrestrial_mammal' as specific types of cultivated lifeforms, and 'symbol_of_affection' as",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-452b (agricultural_scientific, systemic_analysis) receives these signals: population, demography, animal, terrestrial_mammal, symbol_of_affection.\n        Explain their interpretation. Kepler-452b's civilization, with their agricultural and scientific focus, interprets 'population' and 'demography' as patterns of growth and resource allocation within their own agricultural systems. They understand 'animal' and 'terrestrial_mammal' as specific types of cultivated lifeforms, and 'symbol_of_affection' as",
+      "planet": {
+        "id": "PLANET_02",
+        "name": "Kepler-452b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth_candidate",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "earth_like_environment_candidate"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "agricultural_scientific",
+        "perception_style": "systemic_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AB5AE3E064189",
+          "name": "Heart",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_pattern"
+          ],
+          "semantic_tags": [
+            "symbol_of_affection"
+          ],
+          "inference_tags": [
+            "emotional_communication"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T11:26:48.456838"
+    }
+  },
+  {
+    "id": 1775964399857,
+    "time": "11:26:39",
+    "planet": "Kepler-452b",
+    "signals": "Population(8340995923), Cat, Apple",
+    "fullData": {
+      "result": "Kepler-452b's agricultural-scientific civilization perceives 'population' and 'demography' as patterns of nutrient distribution and growth cycles, 'animal' and 'terrestrial_mammal' as specific types of pollinators or soil aerators, 'plant' as potential crops or symbiotic organisms, and",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-452b (agricultural_scientific, systemic_analysis) receives these signals: population, demography, animal, terrestrial_mammal, plant, food_source.\n        Explain their interpretation. Kepler-452b's agricultural-scientific civilization perceives 'population' and 'demography' as patterns of nutrient distribution and growth cycles, 'animal' and 'terrestrial_mammal' as specific types of pollinators or soil aerators, 'plant' as potential crops or symbiotic organisms, and",
+      "planet": {
+        "id": "PLANET_02",
+        "name": "Kepler-452b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth_candidate",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "earth_like_environment_candidate"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "agricultural_scientific",
+        "perception_style": "systemic_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T11:26:39.856507"
+    }
+  },
+  {
+    "id": 1775964391273,
+    "time": "11:26:31",
+    "planet": "Proxima Centauri b",
+    "signals": "Population(8340995923), Mondrian, Apple",
+    "fullData": {
+      "result": "The Proxima Centauri b civilization, adapted to survive in extreme environments, perceives the signals as fluctuating energy patterns in their harsh terrain. They interpret 'population' and 'demography' as shifting energy densities, 'abstract art' as intricate, dynamic energy patterns, 'plant' as a source of nourishing energy, and '",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Proxima Centauri b (survival_adapted, environmental_pattern) receives these signals: population, demography, abstract_art, plant, food_source.\n        Explain their interpretation. The Proxima Centauri b civilization, adapted to survive in extreme environments, perceives the signals as fluctuating energy patterns in their harsh terrain. They interpret 'population' and 'demography' as shifting energy densities, 'abstract art' as intricate, dynamic energy patterns, 'plant' as a source of nourishing energy, and '",
+      "planet": {
+        "id": "PLANET_01",
+        "name": "Proxima Centauri b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "terrestrial_planet",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "potential_habitable_world"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "survival_adapted",
+        "perception_style": "environmental_pattern",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T11:26:31.270698"
+    }
+  },
+  {
+    "id": 1775964382763,
+    "time": "11:26:22",
+    "planet": "Kepler-452b",
+    "signals": "Natural Number, Cat, DNA",
+    "fullData": {
+      "result": "Kepler-452b's agricultural scientists perceive 'animal' as a complex system of nutrient exchange, 'terrestrial mammal' as a unique biological unit with specific genetic coding, and 'genetic molecule' as a blueprint for agricultural optimization. They interpret 'natural numbers' as a sequence of growth cycles, each",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-452b (agricultural_scientific, systemic_analysis) receives these signals: animal, terrestrial_mammal, genetic_molecule, natural_numbers.\n        Explain their interpretation. Kepler-452b's agricultural scientists perceive 'animal' as a complex system of nutrient exchange, 'terrestrial mammal' as a unique biological unit with specific genetic coding, and 'genetic molecule' as a blueprint for agricultural optimization. They interpret 'natural numbers' as a sequence of growth cycles, each",
+      "planet": {
+        "id": "PLANET_02",
+        "name": "Kepler-452b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth_candidate",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "earth_like_environment_candidate"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "agricultural_scientific",
+        "perception_style": "systemic_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T11:26:22.761441"
+    }
+  },
+  {
+    "id": 1775964301171,
+    "time": "11:25:01",
+    "planet": "Proxima Centauri b",
+    "signals": "Cat, Apple, DNA",
+    "fullData": {
+      "result": "The Proxima Centauri b civilization, adapted to survive in extreme environmental conditions, perceives 'animal' and 'terrestrial_mammal' as potential prey or symbiotic partners, recognizing them as organisms that share similar survival strategies. They interpret 'plant' as a source of sustenance, 'food_source' as",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Proxima Centauri b (survival_adapted, environmental_pattern) receives these signals: animal, terrestrial_mammal, plant, food_source, genetic_molecule.\n        Explain their interpretation. The Proxima Centauri b civilization, adapted to survive in extreme environmental conditions, perceives 'animal' and 'terrestrial_mammal' as potential prey or symbiotic partners, recognizing them as organisms that share similar survival strategies. They interpret 'plant' as a source of sustenance, 'food_source' as",
+      "planet": {
+        "id": "PLANET_01",
+        "name": "Proxima Centauri b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "terrestrial_planet",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "potential_habitable_world"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "survival_adapted",
+        "perception_style": "environmental_pattern",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        }
+      ],
+      "timestamp": "2026-04-12T11:25:01.164503"
+    }
+  },
+  {
+    "id": 1775963196042,
+    "time": "11:06:36",
+    "planet": "Gliese 667 Cc",
+    "signals": "Natural Number, Cat, Mondrian",
+    "fullData": {
+      "result": "Signal: 12345\n\nInterpretation: The alien civilization, with a structural logic perception style, would interpret the signal '12345' as a sequence of natural numbers, possibly representing a mathematical concept or a structured pattern that aligns with their mineral-based civilization's preference for order and structure.",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\nanimal, terrestrial_mammal, abstract_art, natural_numbers\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: 12345\n\nInterpretation: The alien civilization, with a structural logic perception style, would interpret the signal '12345' as a sequence of natural numbers, possibly representing a mathematical concept or a structured pattern that aligns with their mineral-based civilization's preference for order and structure.\n\n",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T11:06:36.040535"
+    }
+  },
+  {
+    "id": 1775963172086,
+    "time": "11:06:12",
+    "planet": "Gliese 667 Cc",
+    "signals": "Gene Pairs(3101804739), Natural Number, Cat",
+    "fullData": {
+      "result": "Signal: genetic_information\n\nInterpretation: The alien civilization, with a structural logic perception style, would interpret the genetic_information signal as a complex sequence of structural codes that represent the biological blueprint of Earth's life forms. They would analyze the patterns and structures within the genetic data to understand the diversity and complexity of terrest",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\ngenetic_information, animal, terrestrial_mammal, natural_numbers\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: genetic_information\n\nInterpretation: The alien civilization, with a structural logic perception style, would interpret the genetic_information signal as a complex sequence of structural codes that represent the biological blueprint of Earth's life forms. They would analyze the patterns and structures within the genetic data to understand the diversity and complexity of terrest",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5A65A93E064189",
+          "name": "Gene Pairs(3101804739)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "genetic_information"
+          ],
+          "inference_tags": [
+            "complex_biology"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T11:06:12.055130"
+    }
+  },
+  {
+    "id": 1775963147762,
+    "time": "11:05:47",
+    "planet": "Proxima Centauri b",
+    "signals": "Dog, Earth, Population(8340995923)",
+    "fullData": {
+      "result": "Signal: \"population\"\n\nInterpretation: The alien civilization, with a survival-adapted nature and an environmental pattern perception style, would interpret the \"population\" signal as a crucial indicator of Earth's capacity to support life, potentially assessing the sustainability of human societies and their impact on the planet's resources.",
+      "full_text": "An alien civilization from Proxima Centauri b receives signals from Earth.\n\nDetected signal meanings:\npopulation, demography, animal, domesticated_species, planet, liquid_water_environment\n\nTheir civilization type:\nsurvival_adapted\n\nTheir perception style:\nenvironmental_pattern\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: \"population\"\n\nInterpretation: The alien civilization, with a survival-adapted nature and an environmental pattern perception style, would interpret the \"population\" signal as a crucial indicator of Earth's capacity to support life, potentially assessing the sustainability of human societies and their impact on the planet's resources.",
+      "planet": {
+        "id": "PLANET_01",
+        "name": "Proxima Centauri b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "terrestrial_planet",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "potential_habitable_world"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "survival_adapted",
+        "perception_style": "environmental_pattern",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "1DFC0033181080",
+          "name": "Dog",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "domesticated_species"
+          ],
+          "inference_tags": [
+            "human_animal_relationship"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1DCF1033181080",
+          "name": "Earth",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "planet",
+            "liquid_water_environment"
+          ],
+          "inference_tags": [
+            "habitable_world"
+          ],
+          "knowledge_domain": "astronomy"
+        }
+      ],
+      "timestamp": "2026-04-12T11:05:47.758386"
+    }
+  },
+  {
+    "id": 1775963128576,
+    "time": "11:05:28",
+    "planet": "Gliese 667 Cc",
+    "signals": "Human, Solar System, Heart",
+    "fullData": {
+      "result": "Signal interpretation:\n\nThe alien civilization, with a structural logic perception style, would likely interpret the signals as a complex mathematical sequence or a pattern that represents a form of communication. Given their mineral-based nature, they might see the 'symbol_of_affection' as a geometric or crystalline structure that conveys a message of peace or",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\nterrestrial_life, bipedal_organism, planetary_system, symbol_of_affection\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal interpretation:\n\nThe alien civilization, with a structural logic perception style, would likely interpret the signals as a complex mathematical sequence or a pattern that represents a form of communication. Given their mineral-based nature, they might see the 'symbol_of_affection' as a geometric or crystalline structure that conveys a message of peace or",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5A75CE3E064189",
+          "name": "Human",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "terrestrial_life",
+            "bipedal_organism"
+          ],
+          "inference_tags": [
+            "intelligent_species"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "5AA5E73E064189",
+          "name": "Solar System",
+          "signal_type": "map",
+          "structure_tags": [
+            "astronomical_map"
+          ],
+          "semantic_tags": [
+            "planetary_system"
+          ],
+          "inference_tags": [
+            "cosmic_location"
+          ],
+          "knowledge_domain": "astronomy"
+        },
+        {
+          "id": "5AB5AE3E064189",
+          "name": "Heart",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_pattern"
+          ],
+          "semantic_tags": [
+            "symbol_of_affection"
+          ],
+          "inference_tags": [
+            "emotional_communication"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T11:05:28.572817"
+    }
+  },
+  {
+    "id": 1775962501849,
+    "time": "10:55:01",
+    "planet": "Gliese 667 Cc",
+    "signals": "DNA, Cat, Natural Number",
+    "fullData": {
+      "result": "Signal: 2, 4, 6, 8\n\nResponse:\n\nThe alien civilization, with a structural logic perception style, would interpret the sequence of natural numbers (2, 4, 6, 8) as a pattern or a series that follows a specific rule, likely recognizing the progression as an arithmetic sequence with a common difference of 2. Given their mineral-based civilization, they might associate this pattern with structural or geometric principles that are fundamental to their understanding of the universe.\n\n\nAn alien civilization from Proxima Centauri b receives a complex signal containing a mix of elements:\n\nDetected signal meanings:\nanimal, terrestrial_mammal, genetic_molecule, natural_numbers, mathematical_equation, celestial_body, human_emotion\n\nTheir civilization type:\nbio-organic",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\nanimal, terrestrial_mammal, genetic_molecule, natural_numbers\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: 2, 4, 6, 8\n\nResponse:\n\nThe alien civilization, with a structural logic perception style, would interpret the sequence of natural numbers (2, 4, 6, 8) as a pattern or a series that follows a specific rule, likely recognizing the progression as an arithmetic sequence with a common difference of 2. Given their mineral-based civilization, they might associate this pattern with structural or geometric principles that are fundamental to their understanding of the universe.\n\n\nAn alien civilization from Proxima Centauri b receives a complex signal containing a mix of elements:\n\nDetected signal meanings:\nanimal, terrestrial_mammal, genetic_molecule, natural_numbers, mathematical_equation, celestial_body, human_emotion\n\nTheir civilization type:\nbio-organic\n",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T10:55:01.846103"
+    }
+  },
+  {
+    "id": 1775962461809,
+    "time": "10:54:21",
+    "planet": "Gliese 667 Cc",
+    "signals": "DNA, Cat, Natural Number",
+    "fullData": {
+      "result": "Signal: 1, 2, 3, 4, 5\n\nInterpretation: The alien civilization, with a structural logic perception style, would interpret the sequence of natural numbers as a pattern or a code. Given their mineral-based civilization, they might see this as a representation of a crystalline structure or a geometric progression, which could be significant in their understanding of the universe's order.\n\nSignal: dog, cat, lion, tiger, elephant\n\nInterpretation: The alien civilization would recognize the sequence of terrestrial mammals as a classification system, possibly relating to the hierarchy or social structure within Earth's fauna. This could be analogous to their own societal organization or a way to categorize the complexity of life forms.\n\nSignal: DNA, RNA, protein, carbohydrate\n\nInterpret",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\nanimal, terrestrial_mammal, genetic_molecule, natural_numbers\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: 1, 2, 3, 4, 5\n\nInterpretation: The alien civilization, with a structural logic perception style, would interpret the sequence of natural numbers as a pattern or a code. Given their mineral-based civilization, they might see this as a representation of a crystalline structure or a geometric progression, which could be significant in their understanding of the universe's order.\n\nSignal: dog, cat, lion, tiger, elephant\n\nInterpretation: The alien civilization would recognize the sequence of terrestrial mammals as a classification system, possibly relating to the hierarchy or social structure within Earth's fauna. This could be analogous to their own societal organization or a way to categorize the complexity of life forms.\n\nSignal: DNA, RNA, protein, carbohydrate\n\nInterpret",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T10:54:21.805379"
+    }
+  },
+  {
+    "id": 1775962426082,
+    "time": "10:53:46",
+    "planet": "Gliese 667 Cc",
+    "signals": "DNA, Cat, Natural Number",
+    "fullData": {
+      "result": "Signal: 4\n\nInterpretation:\n\nThe alien civilization, with a structural logic perception style, would interpret the signal '4' as a natural number, which is a fundamental concept in mathematics. Given their mineral-based civilization, they might see this as a pattern or sequence that could be used to understand the mathematical structure of Earth's natural phenomena.\n\nSignal: genetic_molecule\n\nInterpretation:\n\nThe alien civilization, which perceives through structural logic, would interpret the signal 'genetic_molecule' as a representation of Earth's biological information. They might analyze this data to understand the genetic makeup of Earth's organisms, potentially leading to insights into the evolutionary processes and the diversity of life forms on their home planet.\n\nSignal: animal\n\nInterpretation:\n\nThe alien",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\nanimal, terrestrial_mammal, genetic_molecule, natural_numbers\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: 4\n\nInterpretation:\n\nThe alien civilization, with a structural logic perception style, would interpret the signal '4' as a natural number, which is a fundamental concept in mathematics. Given their mineral-based civilization, they might see this as a pattern or sequence that could be used to understand the mathematical structure of Earth's natural phenomena.\n\nSignal: genetic_molecule\n\nInterpretation:\n\nThe alien civilization, which perceives through structural logic, would interpret the signal 'genetic_molecule' as a representation of Earth's biological information. They might analyze this data to understand the genetic makeup of Earth's organisms, potentially leading to insights into the evolutionary processes and the diversity of life forms on their home planet.\n\nSignal: animal\n\nInterpretation:\n\nThe alien",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T10:53:46.078970"
+    }
+  },
+  {
+    "id": 1775962397356,
+    "time": "10:53:17",
+    "planet": "Gliese 667 Cc",
+    "signals": "DNA, Cat, Natural Number",
+    "fullData": {
+      "result": "Signal: 4\n\nInterpretation:\n\nThe alien civilization, with a structural logic perception style, would interpret the signal '4' as a natural number, which is a fundamental concept in mathematics and likely a universal language across civilizations. Given their mineral-based nature, they might conceptualize it as a specific quantity of a mineral resource or a structural component in their architecture.\n\nSignal: genetic_molecule\n\nInterpretation:\n\nFor the signal 'genetic_molecule', the alien civilization would recognize it as a fundamental unit of life, possibly analogous to their own biological structures or the building blocks of their mineral-based life forms. They might see it as a template for constructing complex organisms or as a key element in their own genetic makeup.\n\nSignal: animal\n\nInterpretation:\n\nThe signal",
+      "full_text": "An alien civilization from Gliese 667 Cc receives signals from Earth.\n\nDetected signal meanings:\nanimal, terrestrial_mammal, genetic_molecule, natural_numbers\n\nTheir civilization type:\nmineral_based\n\nTheir perception style:\nstructural_logic\n\nExplain how this civilization interprets the signals.\nKeep the answer within 2 sentences.\n\nSignal: 4\n\nInterpretation:\n\nThe alien civilization, with a structural logic perception style, would interpret the signal '4' as a natural number, which is a fundamental concept in mathematics and likely a universal language across civilizations. Given their mineral-based nature, they might conceptualize it as a specific quantity of a mineral resource or a structural component in their architecture.\n\nSignal: genetic_molecule\n\nInterpretation:\n\nFor the signal 'genetic_molecule', the alien civilization would recognize it as a fundamental unit of life, possibly analogous to their own biological structures or the building blocks of their mineral-based life forms. They might see it as a template for constructing complex organisms or as a key element in their own genetic makeup.\n\nSignal: animal\n\nInterpretation:\n\nThe signal",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T10:53:17.353213"
+    }
+  },
+  {
     "id": 1775962360962,
     "time": "10:52:40",
     "planet": "Gliese 667 Cc",
