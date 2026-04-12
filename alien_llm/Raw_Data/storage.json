@@ -1,5 +1,1251 @@
 [
   {
+    "id": 1775966846790,
+    "time": "12:07:26",
+    "planet": "TRAPPIST-1e",
+    "signals": "Dog, Mondrian, Earth",
+    "fullData": {
+      "result": "The TRAPPIST-1e civilization, with their scientific and pattern-analysis orientation, would interpret the signals as a complex data set. They would see 'animal' as a classification of life forms, 'domesticated species' as a pattern of symbiotic relationships, 'planet' as a celestial body with a specific orbital pattern, 'liquid water",
+      "translation": "TRAPPIST-1e文明及其科学和模式分析取向,将信号解释为复杂的数据集。 他们将“动物”视为生命形式的分类,将“本土物种”视为共生关系模式,将“大陆”视为具有特定轨道模式的天体,将“液态水”视为生命形式的分类,将“本土物种”视为共生关系模式,将“大陆”视为具有特定轨道模式的天体。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from TRAPPIST-1e (scientific, pattern_analysis) receives these signals: animal, domesticated_species, planet, liquid_water_environment, abstract_art.\n        Explain their interpretation. The TRAPPIST-1e civilization, with their scientific and pattern-analysis orientation, would interpret the signals as a complex data set. They would see 'animal' as a classification of life forms, 'domesticated species' as a pattern of symbiotic relationships, 'planet' as a celestial body with a specific orbital pattern, 'liquid water",
+      "planet": {
+        "id": "PLANET_04",
+        "name": "TRAPPIST-1e",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "high_habitability_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "scientific",
+        "perception_style": "pattern_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "1DFC0033181080",
+          "name": "Dog",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "domesticated_species"
+          ],
+          "inference_tags": [
+            "human_animal_relationship"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1DCF1033181080",
+          "name": "Earth",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "planet",
+            "liquid_water_environment"
+          ],
+          "inference_tags": [
+            "habitable_world"
+          ],
+          "knowledge_domain": "astronomy"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:07:26.789955"
+    }
+  },
+  {
+    "id": 1775966836259,
+    "time": "12:07:16",
+    "planet": "Kepler-186f",
+    "signals": "Apple, Population(8340995923), Human",
+    "fullData": {
+      "result": "The Kepler-186f civilization, with their water-ecology-based perception, interprets 'population' and 'demography' as fluctuations in their aquatic communities, with 'bipedal organisms' seen as unique, two-legged aquatic entities. They perceive 'terrestrial_life' as a different, land",
+      "translation": "开普勒186f文明及其基于水生态学的观念,将“人口”和“人口学”解释为其水生社区的波动,将“双层生物”视为独特的、双腿水生实体。他们认为“地表生物”是一种不同的土地。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-186f (water_ecology_based, biological_interpretation) receives these signals: population, demography, terrestrial_life, bipedal_organism, plant, food_source.\n        Explain their interpretation. The Kepler-186f civilization, with their water-ecology-based perception, interprets 'population' and 'demography' as fluctuations in their aquatic communities, with 'bipedal organisms' seen as unique, two-legged aquatic entities. They perceive 'terrestrial_life' as a different, land",
+      "planet": {
+        "id": "PLANET_03",
+        "name": "Kepler-186f",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "potential_surface_water"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "water_ecology_based",
+        "perception_style": "biological_interpretation",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5A75CE3E064189",
+          "name": "Human",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "terrestrial_life",
+            "bipedal_organism"
+          ],
+          "inference_tags": [
+            "intelligent_species"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:07:16.258165"
+    }
+  },
+  {
+    "id": 1775966826375,
+    "time": "12:07:06",
+    "planet": "Kepler-452b",
+    "signals": "Mondrian, Natural Number, Earth",
+    "fullData": {
+      "result": "Kepler-452b's agricultural-scientific civilization interprets the signals as a complex system of interconnected elements, with 'planet' and 'liquid water environment' seen as fundamental units of their ecological model. They perceive 'abstract art' as a sophisticated form of crop rotation patterns and 'natural numbers' as a mathematical",
+      "translation": "Kepler-452b的农业-科学文明将信号解释为一个由相互关联的要素组成的复杂系统,“大陆网”和“液水环境”被视为其生态模型的基本单位。 他们认为“吸引艺术”是一种复杂的作物轮作模式,“自然数字”是一种数学。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-452b (agricultural_scientific, systemic_analysis) receives these signals: planet, liquid_water_environment, abstract_art, natural_numbers.\n        Explain their interpretation. Kepler-452b's agricultural-scientific civilization interprets the signals as a complex system of interconnected elements, with 'planet' and 'liquid water environment' seen as fundamental units of their ecological model. They perceive 'abstract art' as a sophisticated form of crop rotation patterns and 'natural numbers' as a mathematical",
+      "planet": {
+        "id": "PLANET_02",
+        "name": "Kepler-452b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth_candidate",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "earth_like_environment_candidate"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "agricultural_scientific",
+        "perception_style": "systemic_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "1DCF1033181080",
+          "name": "Earth",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "planet",
+            "liquid_water_environment"
+          ],
+          "inference_tags": [
+            "habitable_world"
+          ],
+          "knowledge_domain": "astronomy"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T12:07:06.375082"
+    }
+  },
+  {
+    "id": 1775966816634,
+    "time": "12:06:56",
+    "planet": "Gliese 667 Cc",
+    "signals": "Mondrian, DNA, Dog",
+    "fullData": {
+      "result": "The Gliese 667 Cc civilization, with their mineral-based perception, interprets 'animal' as a series of geometric shapes and patterns, representing living organisms. They perceive 'domesticated species' as harmoniously arranged crystal structures, symbolizing societal order. 'Abstract art' is seen as a complex arrangement of mineral formations",
+      "translation": "Gliee 667 Cc文明及其以矿物为基础的认知,将“动物”解释为一系列几何形状和模式,代表生物体。他们把“本土化物种”视为和谐安排的晶体结构,象征着社会秩序。“吸引艺术”被视为一种复杂的矿物构造安排。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Gliese 667 Cc (mineral_based, structural_logic) receives these signals: animal, domesticated_species, abstract_art, genetic_molecule.\n        Explain their interpretation. The Gliese 667 Cc civilization, with their mineral-based perception, interprets 'animal' as a series of geometric shapes and patterns, representing living organisms. They perceive 'domesticated species' as harmoniously arranged crystal structures, symbolizing societal order. 'Abstract art' is seen as a complex arrangement of mineral formations",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "1DFC0033181080",
+          "name": "Dog",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "domesticated_species"
+          ],
+          "inference_tags": [
+            "human_animal_relationship"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        }
+      ],
+      "timestamp": "2026-04-12T12:06:56.633990"
+    }
+  },
+  {
+    "id": 1775966806818,
+    "time": "12:06:46",
+    "planet": "Kepler-452b",
+    "signals": "Earth, Solar System, Heart",
+    "fullData": {
+      "result": "The Kepler-452b civilization, with their agricultural and scientific focus, perceives the signals as a complex, interconnected system of life-sustaining elements, with 'planet' and 'planetary_system' representing the fundamental unit of their ecological understanding. They interpret 'liquid_water_environment' as a critical component for their agricultural",
+      "translation": "开普勒-452b文明以农业和科学为重点,将信号视为一个复杂、相互关联的生命维持要素系统,其中“大陆网”和“行星系统”代表其生态理解的基本单位。 它们将“液体_水_环境”解释为农业的关键组成部分。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-452b (agricultural_scientific, systemic_analysis) receives these signals: planet, liquid_water_environment, planetary_system, symbol_of_affection.\n        Explain their interpretation. The Kepler-452b civilization, with their agricultural and scientific focus, perceives the signals as a complex, interconnected system of life-sustaining elements, with 'planet' and 'planetary_system' representing the fundamental unit of their ecological understanding. They interpret 'liquid_water_environment' as a critical component for their agricultural",
+      "planet": {
+        "id": "PLANET_02",
+        "name": "Kepler-452b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth_candidate",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "earth_like_environment_candidate"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "agricultural_scientific",
+        "perception_style": "systemic_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "1DCF1033181080",
+          "name": "Earth",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "planet",
+            "liquid_water_environment"
+          ],
+          "inference_tags": [
+            "habitable_world"
+          ],
+          "knowledge_domain": "astronomy"
+        },
+        {
+          "id": "5AA5E73E064189",
+          "name": "Solar System",
+          "signal_type": "map",
+          "structure_tags": [
+            "astronomical_map"
+          ],
+          "semantic_tags": [
+            "planetary_system"
+          ],
+          "inference_tags": [
+            "cosmic_location"
+          ],
+          "knowledge_domain": "astronomy"
+        },
+        {
+          "id": "5AB5AE3E064189",
+          "name": "Heart",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_pattern"
+          ],
+          "semantic_tags": [
+            "symbol_of_affection"
+          ],
+          "inference_tags": [
+            "emotional_communication"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:06:46.816750"
+    }
+  },
+  {
+    "id": 1775966797106,
+    "time": "12:06:37",
+    "planet": "TRAPPIST-1e",
+    "signals": "Cat, Mondrian, Dog",
+    "fullData": {
+      "result": "The TRAPPIST-1e civilization, with their scientific inclination and pattern analysis, would decode the signals as a sequence of biological and cultural evolution patterns. They would interpret 'animal' and 'terrestrial mammal' as specific evolutionary stages, while 'domesticated species' would be seen as a significant shift in the symbiotic relationship between species.",
+      "translation": "TRAPPIST-1e文明及其科学倾向和模式分析将把信号破解为生物和文化进化模式的序列。 它们将把“动物”和“地球哺乳动物”解释为具体的进化阶段,而“本土物种”则被视为物种之间共生关系的重大转变。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from TRAPPIST-1e (scientific, pattern_analysis) receives these signals: animal, terrestrial_mammal, animal, domesticated_species, abstract_art.\n        Explain their interpretation. The TRAPPIST-1e civilization, with their scientific inclination and pattern analysis, would decode the signals as a sequence of biological and cultural evolution patterns. They would interpret 'animal' and 'terrestrial mammal' as specific evolutionary stages, while 'domesticated species' would be seen as a significant shift in the symbiotic relationship between species.",
+      "planet": {
+        "id": "PLANET_04",
+        "name": "TRAPPIST-1e",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "high_habitability_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "scientific",
+        "perception_style": "pattern_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1DFC0033181080",
+          "name": "Dog",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "domesticated_species"
+          ],
+          "inference_tags": [
+            "human_animal_relationship"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:06:37.105279"
+    }
+  },
+  {
+    "id": 1775966787352,
+    "time": "12:06:27",
+    "planet": "Proxima Centauri b",
+    "signals": "DNA, Natural Number, Mondrian",
+    "fullData": {
+      "result": "The Proxima Centauri b civilization, adapted to survive in extreme environmental patterns, perceives 'abstract art' as a complex, dynamic pattern of energy fluctuations that reflect their own survival strategies. They interpret 'genetic molecule' as a series of intricate, interconnected energy pathways, and 'natural numbers' as fundamental, repeating energy p",
+      "translation": "近半人马星b文明适应极端环境模式的生存,将“抽象艺术”视为反映其自身生存战略的复杂、动态的能源波动模式。它们将“遗传分子”解释为一系列错综复杂、相互联系的能源路径,而“自然数字”则被视为基本的,重复能源。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Proxima Centauri b (survival_adapted, environmental_pattern) receives these signals: abstract_art, genetic_molecule, natural_numbers.\n        Explain their interpretation. The Proxima Centauri b civilization, adapted to survive in extreme environmental patterns, perceives 'abstract art' as a complex, dynamic pattern of energy fluctuations that reflect their own survival strategies. They interpret 'genetic molecule' as a series of intricate, interconnected energy pathways, and 'natural numbers' as fundamental, repeating energy p",
+      "planet": {
+        "id": "PLANET_01",
+        "name": "Proxima Centauri b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "terrestrial_planet",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "potential_habitable_world"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "survival_adapted",
+        "perception_style": "environmental_pattern",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AC55200000000",
+          "name": "DNA",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_structure"
+          ],
+          "semantic_tags": [
+            "genetic_molecule"
+          ],
+          "inference_tags": [
+            "biological_information_system"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1D5AF332181080",
+          "name": "Natural Number",
+          "signal_type": "math",
+          "structure_tags": [
+            "number_system"
+          ],
+          "semantic_tags": [
+            "natural_numbers"
+          ],
+          "inference_tags": [
+            "mathematical_knowledge"
+          ],
+          "knowledge_domain": "mathematics"
+        }
+      ],
+      "timestamp": "2026-04-12T12:06:27.351792"
+    }
+  },
+  {
+    "id": 1775966777619,
+    "time": "12:06:17",
+    "planet": "Kepler-186f",
+    "signals": "Cat, Apple, Dog",
+    "fullData": {
+      "result": "The Kepler-186f civilization, with their water-ecology based biological interpretation, perceives the signals as a series of aquatic movements, identifying 'terrestrial mammal' and 'domesticated species' as unusual, non-aquatic entities that disrupt their water currents. They interpret 'plant' as a nutrient-rich,",
+      "translation": "开普勒186f文明及其基于水生态学的生物解释认为,这些信号是一系列水生运动,确定“地球哺乳动物”和“本土物种”是破坏其水流的不寻常、非水体实体。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-186f (water_ecology_based, biological_interpretation) receives these signals: animal, terrestrial_mammal, animal, domesticated_species, plant, food_source.\n        Explain their interpretation. The Kepler-186f civilization, with their water-ecology based biological interpretation, perceives the signals as a series of aquatic movements, identifying 'terrestrial mammal' and 'domesticated species' as unusual, non-aquatic entities that disrupt their water currents. They interpret 'plant' as a nutrient-rich,",
+      "planet": {
+        "id": "PLANET_03",
+        "name": "Kepler-186f",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "potential_surface_water"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "water_ecology_based",
+        "perception_style": "biological_interpretation",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1DFC0033181080",
+          "name": "Dog",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "domesticated_species"
+          ],
+          "inference_tags": [
+            "human_animal_relationship"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:06:17.619052"
+    }
+  },
+  {
+    "id": 1775966767925,
+    "time": "12:06:07",
+    "planet": "Gliese 667 Cc",
+    "signals": "Mondrian, Population(8340995923), Apple",
+    "fullData": {
+      "result": "The Gliese 667 Cc civilization, with their mineral-based perception, interprets 'population' and 'demography' as varying densities and compositions of crystalline structures, while 'plant' and 'food_source' are seen as different mineral formations with varying energy outputs. 'Abstract art' is perceived as a complex",
+      "translation": "Gliee 667 Cc文明及其基于矿物的认知,将“人口”和“人口”解释为晶体结构的不同密度和构成,而“植物”和“食物源”则被视为不同的矿物形态,能源产出各不相同。 “吸引艺术”被视为复杂。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Gliese 667 Cc (mineral_based, structural_logic) receives these signals: population, demography, abstract_art, plant, food_source.\n        Explain their interpretation. The Gliese 667 Cc civilization, with their mineral-based perception, interprets 'population' and 'demography' as varying densities and compositions of crystalline structures, while 'plant' and 'food_source' are seen as different mineral formations with varying energy outputs. 'Abstract art' is perceived as a complex",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5AA5AE3E064189",
+          "name": "Mondrian",
+          "signal_type": "image",
+          "structure_tags": [
+            "geometric_pattern"
+          ],
+          "semantic_tags": [
+            "abstract_art"
+          ],
+          "inference_tags": [
+            "cultural_expression"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:06:07.924434"
+    }
+  },
+  {
+    "id": 1775966758089,
+    "time": "12:05:58",
+    "planet": "Gliese 667 Cc",
+    "signals": "Earth, Human, Population(8340995923)",
+    "fullData": {
+      "result": "The Gliese 667 Cc civilization, with their mineral-based perception and structural logic, interprets 'population' and 'demography' as intricate crystal lattice patterns, each node representing an individual and their connections indicating familial or social ties. They perceive 'terrestrial_life' and 'bipedal_organism'",
+      "translation": "Gliee 667 Cc文明及其基于矿物的观念和结构逻辑,将“人口”和“人口学”解释为复杂的晶体花束模式,每个代表个人的节点及其表明家庭或社会联系的联系。它们认为“地球生命”和“双机”是“地球生物”。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Gliese 667 Cc (mineral_based, structural_logic) receives these signals: population, demography, terrestrial_life, bipedal_organism, planet, liquid_water_environment.\n        Explain their interpretation. The Gliese 667 Cc civilization, with their mineral-based perception and structural logic, interprets 'population' and 'demography' as intricate crystal lattice patterns, each node representing an individual and their connections indicating familial or social ties. They perceive 'terrestrial_life' and 'bipedal_organism'",
+      "planet": {
+        "id": "PLANET_05",
+        "name": "Gliese 667 Cc",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "super_earth",
+          "habitable_zone_candidate"
+        ],
+        "inference_tags": [
+          "possible_atmosphere"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "mineral_based",
+        "perception_style": "structural_logic",
+        "technology_level": "unknown"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5A75CE3E064189",
+          "name": "Human",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "terrestrial_life",
+            "bipedal_organism"
+          ],
+          "inference_tags": [
+            "intelligent_species"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "1DCF1033181080",
+          "name": "Earth",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "planet",
+            "liquid_water_environment"
+          ],
+          "inference_tags": [
+            "habitable_world"
+          ],
+          "knowledge_domain": "astronomy"
+        }
+      ],
+      "timestamp": "2026-04-12T12:05:58.087986"
+    }
+  },
+  {
+    "id": 1775966683179,
+    "time": "12:04:43",
+    "planet": "TRAPPIST-1e",
+    "signals": "Cat, Apple, Heart",
+    "fullData": {
+      "result": "The TRAPPIST-1e civilization, with their scientific and pattern-analyzing nature, would interpret the signals as a complex data set. They would analyze 'animal' and 'terrestrial_mammal' as specific biological patterns, 'plant' as a form of photosynthetic energy conversion, 'food_source' as a nutritional",
+      "translation": "TRAPPIST-1e文明及其科学和模式分析分析性质,将信号解释为复杂的数据集。它们将分析“动物”和“地-地-地-mammal”作为具体的生物模式,“植物”作为光合能源转换的一种形式,“食物源”作为营养。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from TRAPPIST-1e (scientific, pattern_analysis) receives these signals: animal, terrestrial_mammal, plant, food_source, symbol_of_affection.\n        Explain their interpretation. The TRAPPIST-1e civilization, with their scientific and pattern-analyzing nature, would interpret the signals as a complex data set. They would analyze 'animal' and 'terrestrial_mammal' as specific biological patterns, 'plant' as a form of photosynthetic energy conversion, 'food_source' as a nutritional",
+      "planet": {
+        "id": "PLANET_04",
+        "name": "TRAPPIST-1e",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "high_habitability_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "scientific",
+        "perception_style": "pattern_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AB5AE3E064189",
+          "name": "Heart",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_pattern"
+          ],
+          "semantic_tags": [
+            "symbol_of_affection"
+          ],
+          "inference_tags": [
+            "emotional_communication"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:04:43.178532"
+    }
+  },
+  {
+    "id": 1775966673113,
+    "time": "12:04:33",
+    "planet": "K2-18b",
+    "signals": "Apple, Solar System, Heart",
+    "fullData": {
+      "result": "The K2-18b civilization interprets the signals as a complex, interconnected flow of energy, with 'planetary_system' representing a vast, harmonious oceanic network. They perceive 'plant' as a unique, photosynthetic entity that thrives in their liquid environment, and 'food_source' as a nutrient-rich",
+      "translation": "K2-18b文明将信号解释为一种复杂、相互联系的能源流动,“行星系统”代表着一个广阔而和谐的海洋网络。他们认为“植物”是一个独特、光合体,在液体环境中蓬勃发展,“食物源”是一种富营养物质。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from K2-18b (oceanic, fluid_pattern_recognition) receives these signals: planetary_system, plant, food_source, symbol_of_affection.\n        Explain their interpretation. The K2-18b civilization interprets the signals as a complex, interconnected flow of energy, with 'planetary_system' representing a vast, harmonious oceanic network. They perceive 'plant' as a unique, photosynthetic entity that thrives in their liquid environment, and 'food_source' as a nutrient-rich",
+      "planet": {
+        "id": "PLANET_06",
+        "name": "K2-18b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "sub_neptune",
+          "water_vapor_detection"
+        ],
+        "inference_tags": [
+          "atmospheric_biosignature_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "oceanic",
+        "perception_style": "fluid_pattern_recognition",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AA5E73E064189",
+          "name": "Solar System",
+          "signal_type": "map",
+          "structure_tags": [
+            "astronomical_map"
+          ],
+          "semantic_tags": [
+            "planetary_system"
+          ],
+          "inference_tags": [
+            "cosmic_location"
+          ],
+          "knowledge_domain": "astronomy"
+        },
+        {
+          "id": "1D250333181080",
+          "name": "Apple",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "plant",
+            "food_source"
+          ],
+          "inference_tags": [
+            "agriculture_or_diet"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "5AB5AE3E064189",
+          "name": "Heart",
+          "signal_type": "symbol",
+          "structure_tags": [
+            "symbolic_pattern"
+          ],
+          "semantic_tags": [
+            "symbol_of_affection"
+          ],
+          "inference_tags": [
+            "emotional_communication"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:04:33.113038"
+    }
+  },
+  {
+    "id": 1775966663348,
+    "time": "12:04:23",
+    "planet": "K2-18b",
+    "signals": "Cat, Population(8340995923), Human",
+    "fullData": {
+      "result": "The K2-18b civilization perceives the signals as a series of interconnected, dynamic fluid patterns, with 'population' and 'demography' representing varying intensities and frequencies of these patterns. They interpret 'bipedal organisms' and 'terrestrial mammals' as unique, vertical current-disturbances, while 'animal' and '",
+      "translation": "K2-18b文明将信号视为一系列相互联系的动态流动模式,“人口”和“人口”代表着这些模式的不同强度和频率。它们将“双栖生物”和“地球哺乳动物”解释为独特、垂直的当前扰动,而“动物”和“动物”。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from K2-18b (oceanic, fluid_pattern_recognition) receives these signals: population, demography, terrestrial_life, bipedal_organism, animal, terrestrial_mammal.\n        Explain their interpretation. The K2-18b civilization perceives the signals as a series of interconnected, dynamic fluid patterns, with 'population' and 'demography' representing varying intensities and frequencies of these patterns. They interpret 'bipedal organisms' and 'terrestrial mammals' as unique, vertical current-disturbances, while 'animal' and '",
+      "planet": {
+        "id": "PLANET_06",
+        "name": "K2-18b",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "sub_neptune",
+          "water_vapor_detection"
+        ],
+        "inference_tags": [
+          "atmospheric_biosignature_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "oceanic",
+        "perception_style": "fluid_pattern_recognition",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5A75CE3E064189",
+          "name": "Human",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "terrestrial_life",
+            "bipedal_organism"
+          ],
+          "inference_tags": [
+            "intelligent_species"
+          ],
+          "knowledge_domain": "biology"
+        },
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:04:23.347737"
+    }
+  },
+  {
+    "id": 1775966653285,
+    "time": "12:04:13",
+    "planet": "Kepler-186f",
+    "signals": "Gene Pairs(3101804739), Dog, Cat",
+    "fullData": {
+      "result": "The Kepler-186f civilization, with their water-ecology-based perception, interprets 'genetic_information' as intricate patterns of water flow and chemical gradients. They see 'animal' as a dynamic, living entity that interacts with their aquatic environment, 'terrestrial_mammal' as a unique, land-dwell",
+      "translation": "开普勒186f文明及其基于水-生态学的观念,将“遗传信息”解释为水流和化学梯度的复杂模式。他们把“动物”视为一个动态的活体实体,与水生环境相互作用,“地表_mammal”被视为一个独特的、土地居住区。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-186f (water_ecology_based, biological_interpretation) receives these signals: genetic_information, animal, terrestrial_mammal, animal, domesticated_species.\n        Explain their interpretation. The Kepler-186f civilization, with their water-ecology-based perception, interprets 'genetic_information' as intricate patterns of water flow and chemical gradients. They see 'animal' as a dynamic, living entity that interacts with their aquatic environment, 'terrestrial_mammal' as a unique, land-dwell",
+      "planet": {
+        "id": "PLANET_03",
+        "name": "Kepler-186f",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "potential_surface_water"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "water_ecology_based",
+        "perception_style": "biological_interpretation",
+        "technology_level": "developing"
+      },
+      "signals": [
+        {
+          "id": "5A65A93E064189",
+          "name": "Gene Pairs(3101804739)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "genetic_information"
+          ],
+          "inference_tags": [
+            "complex_biology"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5AD55200000000",
+          "name": "Cat",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "terrestrial_mammal"
+          ],
+          "inference_tags": [
+            "biodiversity"
+          ],
+          "knowledge_domain": "culture"
+        },
+        {
+          "id": "1DFC0033181080",
+          "name": "Dog",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "animal",
+            "domesticated_species"
+          ],
+          "inference_tags": [
+            "human_animal_relationship"
+          ],
+          "knowledge_domain": "culture"
+        }
+      ],
+      "timestamp": "2026-04-12T12:04:13.284838"
+    }
+  },
+  {
+    "id": 1775966643326,
+    "time": "12:04:03",
+    "planet": "TRAPPIST-1e",
+    "signals": "Gene Pairs(3101804739), Population(8340995923), Earth",
+    "fullData": {
+      "result": "The TRAPPIST-1e civilization, with their scientific and pattern-analysis orientation, would interpret the signals as a complex data matrix. They would see 'population' and 'demography' as intricate patterns of energy fluctuations, 'genetic_information' as a series of unique, coded vibrations, and 'planet' as a specific reson",
+      "translation": "TRAPPIST-1e文明及其科学和模式分析取向将信号解释为复杂的数据矩阵。 他们认为“人口”和“人口”是能源波动的复杂模式,“基因信息”是一系列独特的、编码的振动,“平面”是特定的共振。",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from TRAPPIST-1e (scientific, pattern_analysis) receives these signals: population, demography, genetic_information, planet, liquid_water_environment.\n        Explain their interpretation. The TRAPPIST-1e civilization, with their scientific and pattern-analysis orientation, would interpret the signals as a complex data matrix. They would see 'population' and 'demography' as intricate patterns of energy fluctuations, 'genetic_information' as a series of unique, coded vibrations, and 'planet' as a specific reson",
+      "planet": {
+        "id": "PLANET_04",
+        "name": "TRAPPIST-1e",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "high_habitability_interest"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "scientific",
+        "perception_style": "pattern_analysis",
+        "technology_level": "advanced"
+      },
+      "signals": [
+        {
+          "id": "5AB54C3C064189",
+          "name": "Population(8340995923)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "population",
+            "demography"
+          ],
+          "inference_tags": [
+            "large_scale_civilization"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "5A65A93E064189",
+          "name": "Gene Pairs(3101804739)",
+          "signal_type": "numeric",
+          "structure_tags": [
+            "number_sequence"
+          ],
+          "semantic_tags": [
+            "genetic_information"
+          ],
+          "inference_tags": [
+            "complex_biology"
+          ],
+          "knowledge_domain": "mathematics"
+        },
+        {
+          "id": "1DCF1033181080",
+          "name": "Earth",
+          "signal_type": "image",
+          "structure_tags": [
+            "visual_pattern"
+          ],
+          "semantic_tags": [
+            "planet",
+            "liquid_water_environment"
+          ],
+          "inference_tags": [
+            "habitable_world"
+          ],
+          "knowledge_domain": "astronomy"
+        }
+      ],
+      "timestamp": "2026-04-12T12:04:03.325682"
+    }
+  },
+  {
+    "id": 1775966387931,
+    "time": "11:59:47",
+    "planet": "Earth",
+    "signals": "test_signal",
+    "fullData": {
+      "result": "The Kepler-186f civilization, with their water-ecology-based perception, interprets the signals as a series of aquatic symphonies, where 'terrestrial_life' represents diverse marine organisms,",
+      "translation": "开普勒186f文明及其基于水生态的观念,将信号解释为一系列水生交响曲,其中“地表生物”代表多种海洋生物,",
+      "full_text": "# 构建更为严谨的 Prompt\n         You are an expert in speculative biology and science fiction. Your task is to explain how an alien civilization interprets Earth's signals based on their unique perception. Keep your answer strictly within 2 sentences. Do not include prefixes like \"Solution:\" or \"Interpretation:\". An alien civilization from K2-18b (Oceanic civilization, Fluid pattern recognition) receives these signals: terrestrial_life, bipedal_organism, abstract_art.\n        Explain their interpretation. The K2-18b civilization perceives the signals as rhythmic pulsations in their liquid environment, interpreting 'bipedal organisms' as strange, vertical current-disturbances. They view 'abstract art' not as static images, but as complex, swirling energy vortexes that mirror their own fluid-based linguistic structures. An alien civilization from Kepler-186f (water_ecology_based, biological_interpretation) receives these signals: .\n        Explain their interpretation. The Kepler-186f civilization, with their water-ecology-based perception, interprets the signals as a series of aquatic symphonies, where 'terrestrial_life' represents diverse marine organisms,",
+      "planet": {
+        "id": "PLANET_03",
+        "name": "Kepler-186f",
+        "signal_type": "astronomical_reference",
+        "structure_tags": [
+          "exoplanet_identifier"
+        ],
+        "semantic_tags": [
+          "exoplanet",
+          "rocky_planet",
+          "habitable_zone"
+        ],
+        "inference_tags": [
+          "potential_surface_water"
+        ],
+        "knowledge_domain": "astronomy",
+        "civilization_type": "water_ecology_based",
+        "perception_style": "biological_interpretation",
+        "technology_level": "developing"
+      },
+      "signals": [],
+      "timestamp": "2026-04-12T11:59:47.923715"
+    }
+  },
+  {
     "id": 1775964417017,
     "time": "11:26:57",
     "planet": "K2-18b",

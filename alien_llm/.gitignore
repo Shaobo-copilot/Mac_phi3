@@ -34,3 +34,9 @@ runs/
 
 # OpenCode AI 助手
 .opencode/.opencode/
+
+# ================= #
+# 忽略 Helsinki-NLP 翻译模型的大型权重文件
+# ================= #
+# 方案 A：直接忽略整个 translation 模型文件夹（推荐，因为模型通常不需要传到 Git）
+models/translation/

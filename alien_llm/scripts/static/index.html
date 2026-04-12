@@ -461,29 +461,47 @@
                 </div>
             `).join('');
         } else {
-            contentHtml = `<p style="font-size:22px; color:#ccc;">${data.result || data.raw_text || "解码无有效负载"}</p>`;
+            // Display both original English and Chinese translation
+            const englishContent = data.result || data.raw_text || "解码无有效负载";
+            const chineseContent = data.translation || "";
+            
+            let translationDisplay = '';
+            if (chineseContent && chineseContent !== englishContent) {
+                translationDisplay = `
+                    <div class="translation-section">
+                        <h4 style="color:#ffcc00; margin:15px 0 5px 0; font-size:14px;">English Original:</h4>
+                        <p style="line-height:1.6; color:#ccc; font-size:13px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px; margin-bottom: 15px">${englishContent}</p>
+                        <h4 style="color:#00cc88; margin:15px 0 5px 0; font-size:14px;">中文翻译:</h4>
+                        <p style="line-height:1.6; color:#ccc; font-size:13px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px;">${chineseContent}</p>
+                    </div>
+                `;
+            } else {
+                translationDisplay = `<p style="font-size:22px; color:#ccc;">${englishContent}</p>`;
+            }
+            
+            contentHtml = translationDisplay;
         }
 
         // 添加完整文本显示部分
         let fullTextHtml = '';
         if (data.full_text) {
             fullTextHtml = `
-                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,212,255,0.1);">
-                    <h4 style="color:#00d4ff; margin-bottom:10px; font-size:14px;">🔬 完整解码内容</h4>
-                    <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; max-height: 1200px; overflow-y: auto; font-size: 12px; line-height: 1.5; color: #aaa; white-space: pre-wrap;">
-                        ${data.full_text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
-                    </div>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,212,255,0.1);">
+                <h4 style="color:#00d4ff; margin-bottom:10px; font-size:14px;">🔬 Full Decoded Content / 完整解码内容</h4>
+                <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; max-height: 1200px; overflow-y: auto; font-size: 12px; line-height: 1.5; color: #aaa; white-space: pre-wrap;">
+                    ${data.full_text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
                 </div>
+            </div>
             `;
         }
 
         panel.innerHTML = `
             <div class="result-card">
                 <div class="meta-grid">
-                    <div class="meta-box"><label>观测坐标</label><span>${meta.planet.name}</span></div>
-                    <div class="meta-box"><label>文明等级</label><span>${meta.civilization_type}</span></div>
-                    <div class="meta-box"><label>感知模态</label><span>${meta.perception_style}</span></div>
-                    <div class="meta-box"><label>特征信号</label><span>${meta.signals.map(s=>s.name).join(' + ')}</span></div>
+                    <div class="meta-box"><label>Observation Coordinates / 观测坐标</label><span>${meta.planet.name}</span></div>
+                    <div class="meta-box"><label>Civilization Level / 文明等级</label><span>${meta.civilization_type}</span></div>
+                    <div class="meta-box"><label>Perception Mode / 感知模态</label><span>${meta.perception_style}</span></div>
+                    <div class="meta-box"><label>Feature Signals / 特征信号</label><span>${meta.signals.map(s=>s.name).join(' + ')}</span></div>
                 </div>
                 ${contentHtml}
                 ${fullTextHtml}

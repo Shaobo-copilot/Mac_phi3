@@ -2,3 +2,6 @@ flask
 flask-cors
 torch
 transformers
+sentencepiece
+sacremoses
+httpx[socks]

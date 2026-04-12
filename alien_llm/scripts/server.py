@@ -8,6 +8,9 @@ import os
 from datetime import datetime
 import threading
 
+# Import the translation module
+from translate import translate_to_chinese
+
 app = Flask(__name__, static_folder='static')
 CORS(app)
 
@@ -171,9 +174,13 @@ def generate():
     else:
         result_text = text.strip()
 
+    # Translate the result to Chinese
+    chinese_translation = translate_to_chinese(result_text)
+
     # 构建响应数据
     response_data = {
         'result': result_text,  # 返回的代码，介绍了这个文明如何解读信号
+        'translation': chinese_translation,  # 中文翻译
         'full_text': text,  # 完整的解码文本
         'planet': planet,  # 返回的星球信息
         'signals': chosen_signals,  # 返回的信号信息
